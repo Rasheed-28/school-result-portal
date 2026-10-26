@@ -252,7 +252,7 @@
         <tr class="${rowBg} border-b border-slate-300">
           <td class="py-1 px-1.5 text-center text-slate-500 font-mono text-[10px] font-bold border border-slate-300">${i + 1}</td>
           <td class="py-1 px-2.5 text-slate-900 font-bold text-xs border border-slate-300">${displayTitle}</td>
-          <td class="py-1 px-2 text-center text-slate-700 font-mono text-xs font-semibold border border-slate-300">${sub.maxMarks}</td>
+          <td class="py-1 px-2 text-center text-slate-900 font-mono text-xs font-black border border-slate-300">${sub.maxMarks}</td>
           <td class="py-1 px-2 text-center border border-slate-300">${markDisplay}</td>
           <td class="py-1 px-2 text-center border border-slate-300">${statusBadge}</td>
         </tr>
@@ -321,7 +321,7 @@
             <tfoot>
               <tr class="bg-slate-100 font-bold text-xs border-t-2 border-slate-700">
                 <td colspan="2" class="py-1.2 px-2.5 text-slate-900 font-black uppercase text-xs">Total Marks Summary</td>
-                <td class="py-1.2 px-2 text-center font-mono text-slate-700 text-xs font-bold">${classData.meta.maxMarks || (classData.subjects ? classData.subjects.reduce((a,b)=>a+b.maxMarks,0) : 435)}</td>
+                <td class="py-1.2 px-2 text-center font-mono text-slate-900 text-sm font-black border border-slate-300">${classData.meta.maxMarks || (classData.subjects ? classData.subjects.reduce((a,b)=>a+b.maxMarks,0) : 435)}</td>
                 <td class="py-1.2 px-2 text-center font-mono text-sm text-slate-900 font-black bg-slate-200/90">${st.validTotal}</td>
                 <td class="py-1.2 px-2 text-center">
                   ${st.hasFailedSubject 
