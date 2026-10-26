@@ -1,7 +1,7 @@
 /**
  * Academic Dataset: 7th Girls
  * Examination: 2nd Term 2026-27
- * Incharge: 
+ * Incharge: Amna Feroz
  * Principal: Dr. Shaukat Aziz
  * 
  * Source: Official 2nd Term Mark Sheet (Sadwal Campus)
