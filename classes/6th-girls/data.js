@@ -208,25 +208,8 @@ const CLASS_DATA = {
         "History & Geo": 50
       }
     },
-    "Sidra Soaib": {
-      rollNo: 11,
-      marks: {
-        "English": "-",
-        "Urdu": "-",
-        "Mathematics": "-",
-        "General Science": "-",
-        "Computer Science": "-",
-        "Al-Quran": "-",
-        "Islamiat": "-",
-        "Drawing": "-",
-        "Model Making": "-",
-        "Al-Quran (Oral)": "-",
-        "Oral Assessment": "-",
-        "History & Geo": "-"
-      }
-    },
     "Abrish Hourain": {
-      rollNo: 12,
+      rollNo: 11,
       marks: {
         "English": 44,
         "Urdu": 48,
@@ -243,7 +226,7 @@ const CLASS_DATA = {
       }
     },
     "Tehreem Zahra": {
-      rollNo: 13,
+      rollNo: 12,
       marks: {
         "English": 28,
         "Urdu": 36,
@@ -260,7 +243,7 @@ const CLASS_DATA = {
       }
     },
     "Aleesha Murtaza": {
-      rollNo: 14,
+      rollNo: 13,
       marks: {
         "English": 31,
         "Urdu": 29,
@@ -277,7 +260,7 @@ const CLASS_DATA = {
       }
     },
     "Ayesha Siddiqa": {
-      rollNo: 15,
+      rollNo: 14,
       marks: {
         "English": 27,
         "Urdu": 35,
@@ -294,7 +277,7 @@ const CLASS_DATA = {
       }
     },
     "Hadia Imran": {
-      rollNo: 16,
+      rollNo: 15,
       marks: {
         "English": 37,
         "Urdu": 50,
@@ -311,7 +294,7 @@ const CLASS_DATA = {
       }
     },
     "Abrish Noor": {
-      rollNo: 17,
+      rollNo: 16,
       marks: {
         "English": 37,
         "Urdu": 32,
