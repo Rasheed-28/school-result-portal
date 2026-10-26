@@ -80,6 +80,7 @@ function processClass(classData, passRateOverride = null) {
         grade: 'SLC',
         remarks: 'School Leaving Certificate',
         badgeClass: 'bg-slate-100 text-slate-500 border-slate-300',
+        attendance: data.attendance !== undefined ? String(data.attendance) : '-',
         position: '-'
       };
     }
@@ -160,6 +161,7 @@ function processClass(classData, passRateOverride = null) {
       grade: grade,
       remarks: remarks,
       badgeClass: badgeClass,
+      attendance: data.attendance !== undefined ? String(data.attendance) : '',
       position: 0
     };
   });

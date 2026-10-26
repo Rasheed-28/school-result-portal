@@ -218,6 +218,7 @@
               <th class="py-1.5 px-1.5 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold">%age</th>
               <th class="py-1.5 px-1 border-r border-slate-700">Grade</th>
               <th class="py-1.5 px-1.5 border-r border-slate-700">Pos</th>
+              <th class="py-1.5 px-1 border-r border-slate-700 w-12">Att</th>
               <th class="py-1.5 px-2 text-left">Teacher Remarks</th>
             </tr>
             <tr class="bg-slate-200 text-slate-800 font-bold text-xs text-center border-b border-slate-400">
@@ -234,7 +235,7 @@
               <td class="py-1 px-1 font-mono">10</td>
               <td class="py-1 px-2 font-mono font-bold bg-slate-300 text-slate-900">290</td>
               <td class="py-1 px-1.5 font-mono">100%</td>
-              <td colspan="3" class="py-0.5 px-1 text-slate-500">Pass Mark: 40%</td>
+              <td colspan="4" class="py-0.5 px-1 text-slate-500">Pass Mark: 40%</td>
             </tr>
           </thead>
           <tbody id="table-body">
@@ -353,6 +354,7 @@
           <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
         </td>
         <td class="py-2.2 px-1.5 text-center border-r border-slate-200 font-black text-xs">${positionBadge}</td>
+        <td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
         <td class="py-2.2 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
