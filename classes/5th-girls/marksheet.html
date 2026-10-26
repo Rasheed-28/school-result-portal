@@ -26,6 +26,14 @@
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
     }
+    /* Cell Partitioning for Tables (Screen & Print) */
+    table {
+      border-collapse: collapse !important;
+    }
+    table th, table td {
+      border: 1px solid #64748b;
+    }
+
     @page {
       size: A4 landscape;
       margin: 0;
@@ -69,6 +77,29 @@
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
+      }
+      /* High-contrast cell partitioning for black & white printing */
+      table {
+        border: 1.5px solid #0f172a !important;
+        border-collapse: collapse !important;
+      }
+      table th, table td {
+        border: 1px solid #1e293b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      thead th {
+        border: 1px solid #0f172a !important;
+        background-color: #0f172a !important;
+        color: #ffffff !important;
+      }
+      thead tr:nth-child(2) td {
+        border: 1px solid #1e293b !important;
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+      tbody td {
+        border: 1px solid #1e293b !important;
       }
     }
     @media screen {
@@ -325,14 +356,14 @@
         const tr = document.createElement('tr');
         tr.className = 'bg-slate-100/70 border-b border-slate-200 text-xs text-slate-500 italic';
         tr.innerHTML = `
-          <td class="py-1 px-1 text-center font-mono text-[10px] border-r border-slate-200">${st.sr}</td>
-          <td class="py-1 px-2 text-slate-700 font-bold border-r border-slate-200 whitespace-nowrap text-xs">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded border border-slate-300 ml-1">SLC</span></td>
-          <td colspan="${classData.subjects.length}" class="py-1 px-2 text-center tracking-widest text-slate-500 font-semibold text-[10.5px] border-r border-slate-200">&mdash; Left School (School Leaving Certificate) &mdash;</td>
-          <td class="py-1 px-2 text-center font-mono text-slate-400 border-x border-slate-300 text-xs">&mdash;</td>
-          <td class="py-1 px-1.5 text-center font-mono text-slate-400 border-r border-slate-200 text-xs">&mdash;</td>
-          <td class="py-1 px-1 text-center border-r border-slate-200"><span class="font-bold px-1.5 py-0.2 rounded text-[9.5px] bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
-          <td class="py-1 px-1.5 text-center border-r border-slate-200 font-mono text-slate-400">&mdash;</td>
-          <td class="py-1 px-2 text-slate-500 text-xs">Struck off / Left</td>
+          <td class="py-1 px-1 text-center font-mono text-[10px] border border-slate-400">${st.sr}</td>
+          <td class="py-1 px-2 text-slate-700 font-bold border border-slate-400 whitespace-nowrap text-xs">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded border border-slate-300 ml-1">SLC</span></td>
+          <td colspan="${classData.subjects.length}" class="py-1 px-2 text-center tracking-widest text-slate-500 font-semibold text-[10.5px] border border-slate-400">&mdash; Left School (School Leaving Certificate) &mdash;</td>
+          <td class="py-1 px-2 text-center font-mono text-slate-400 border border-slate-400 text-xs">&mdash;</td>
+          <td class="py-1 px-1.5 text-center font-mono text-slate-400 border border-slate-400 text-xs">&mdash;</td>
+          <td class="py-1 px-1 text-center border border-slate-400"><span class="font-bold px-1.5 py-0.2 rounded text-[9.5px] bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
+          <td class="py-1 px-1.5 text-center border border-slate-400 font-mono text-slate-400">&mdash;</td>
+          <td class="py-1 px-2 text-slate-500 text-xs border border-slate-400">Struck off / Left</td>
         `;
         tbody.appendChild(tr);
         return;
@@ -350,34 +381,42 @@
       // Subject cells with LARGER font (text-xs)
       const cells = st.subjectResults.map(sub => {
         if (!sub.isPass) {
-          return `<td class="py-2.2 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
+          return `<td class="py-2.2 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
         }
-        return `<td class="py-2.2 px-1 text-center font-mono font-bold text-slate-800 border-x border-slate-200 text-sm">${sub.mark}</td>`;
+        return `<td class="py-2.2 px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-sm">${sub.mark}</td>`;
       }).join('');
 
       const tr = document.createElement('tr');
-      tr.className = `${rowBg} border-b border-slate-200 text-sm transition hover:bg-slate-100/60`;
+      tr.className = `${rowBg} border-b border-slate-400 text-sm transition hover:bg-slate-100/60`;
       tr.innerHTML = `
-        <td class="py-2.2 px-1 text-center text-slate-500 font-mono text-xs border-r border-slate-200 font-bold">${st.sr}</td>
-        <td class="py-2.2 px-2.5 text-slate-900 font-bold border-r border-slate-200 whitespace-nowrap text-sm">${st.name}</td>
+        <td class="py-2.2 px-1 text-center text-slate-600 font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
+        <td class="py-2.2 px-2.5 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-sm">${st.name}</td>
         ${cells}
-        <td class="py-2.2 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border-x border-slate-300 text-sm">
+        <td class="py-2.2 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-sm">
           ${st.validTotal}
         </td>
-        <td class="py-2.2 px-1.5 text-center font-mono font-black text-slate-800 border-r border-slate-200 text-sm">${st.percentage}%</td>
-        <td class="py-2.2 px-1 text-center border-r border-slate-200">
+        <td class="py-2.2 px-1.5 text-center font-mono font-black text-slate-800 border border-slate-400 text-sm">${st.percentage}%</td>
+        <td class="py-2.2 px-1 text-center border border-slate-400">
           <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="py-2.2 px-1.5 text-center border-r border-slate-200 font-black text-xs">${positionBadge}</td>
-        <td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
-        <td class="py-2.2 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs">${st.remarks}</td>
+        <td class="py-2.2 px-1.5 text-center border border-slate-400 font-black text-xs">${positionBadge}</td>
+        <td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${st.attendance || '&mdash;'}</td>
+        <td class="py-2.2 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs border border-slate-400">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
     });
   }
 
+  // Multi-tier reliable rendering execution
+  renderTable();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderTable);
+  }
+  window.addEventListener('load', renderTable);
+  window.addEventListener('beforeprint', renderTable);
+
   document.addEventListener('DOMContentLoaded', () => {
-    renderTable();
     window.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
         e.preventDefault();

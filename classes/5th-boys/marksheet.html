@@ -26,6 +26,14 @@
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
     }
+    /* Cell Partitioning for Tables (Screen & Print) */
+    table {
+      border-collapse: collapse !important;
+    }
+    table th, table td {
+      border: 1px solid #64748b;
+    }
+
     @page {
       size: A4 landscape;
       margin: 0;
@@ -74,6 +82,29 @@
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
+      /* High-contrast cell partitioning for black & white printing */
+      table {
+        border: 1.5px solid #0f172a !important;
+        border-collapse: collapse !important;
+      }
+      table th, table td {
+        border: 1px solid #1e293b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      thead th {
+        border: 1px solid #0f172a !important;
+        background-color: #0f172a !important;
+        color: #ffffff !important;
+      }
+      thead tr:nth-child(2) td {
+        border: 1px solid #1e293b !important;
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+      tbody td {
+        border: 1px solid #1e293b !important;
+      }
     }
     @media screen {
       .marksheet-container {
@@ -93,7 +124,6 @@
         margin: 0 auto 24px auto;
         background: #ffffff;
       }
-    }
     }
     .navbar-container {
       width: 100%;
@@ -475,23 +505,23 @@
 
   <script>
     function renderRow(st, classData, isCompact = false) {
-    const padY = isCompact ? 'py-1' : 'py-3';
+    const padY = isCompact ? 'py-1' : 'py-2';
     const fontSize = isCompact ? 'text-xs' : 'text-sm';
     const fontNameSize = isCompact ? 'text-xs' : 'text-sm';
     
     if (st.isSLC) {
       const tr = document.createElement('tr');
-      tr.className = `bg-slate-100/70 border-b border-slate-200 ${fontSize} text-slate-500 italic`;
+      tr.className = `bg-slate-100/70 border-b border-slate-400 ${fontSize} text-slate-500 italic`;
       tr.innerHTML = `
-        <td class="${padY} px-1 text-center font-mono text-[10px] border-r border-slate-200">${st.sr}</td>
-        <td class="${padY} px-2 text-slate-700 font-bold border-r border-slate-200 whitespace-nowrap ${fontNameSize}">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded border border-slate-300 ml-1">SLC</span></td>
-        <td colspan="${classData.subjects.length}" class="${padY} px-2 text-center tracking-widest text-slate-500 font-semibold text-[10px] border-r border-slate-200">&mdash; Left School (School Leaving Certificate) &mdash;</td>
-        <td class="${padY} px-1.5 text-center font-mono text-slate-400 border-x border-slate-300 ${fontSize}">&mdash;</td>
-        <td class="${padY} px-1 text-center font-mono text-slate-400 border-r border-slate-200 ${fontSize}">&mdash;</td>
-        <td class="${padY} px-1 text-center border-r border-slate-200"><span class="font-bold px-1.5 py-0.2 rounded text-[9px] bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
-        <td class="${padY} px-1 text-center border-r border-slate-200 font-mono text-slate-400">&mdash;</td>
-        <td class="${padY} px-1 text-center border-r border-slate-200 font-mono text-slate-400">&mdash;</td>
-        <td class="${padY} px-2 text-slate-500 ${fontSize}">Struck off / Left</td>
+        <td class="${padY} px-1 text-center font-mono text-[10px] border border-slate-400">${st.sr}</td>
+        <td class="${padY} px-2 text-slate-700 font-bold border border-slate-400 whitespace-nowrap ${fontNameSize}">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded border border-slate-300 ml-1">SLC</span></td>
+        <td colspan="${classData.subjects.length}" class="${padY} px-2 text-center tracking-widest text-slate-500 font-semibold text-[10px] border border-slate-400">&mdash; Left School (School Leaving Certificate) &mdash;</td>
+        <td class="${padY} px-1.5 text-center font-mono text-slate-400 border border-slate-400 ${fontSize}">&mdash;</td>
+        <td class="${padY} px-1 text-center font-mono text-slate-400 border border-slate-400 ${fontSize}">&mdash;</td>
+        <td class="${padY} px-1 text-center border border-slate-400"><span class="font-bold px-1.5 py-0.2 rounded text-[9px] bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
+        <td class="${padY} px-1 text-center border border-slate-400 font-mono text-slate-400">&mdash;</td>
+        <td class="${padY} px-1 text-center border border-slate-400 font-mono text-slate-400">&mdash;</td>
+        <td class="${padY} px-2 text-slate-500 border border-slate-400 ${fontSize}">Struck off / Left</td>
       `;
       return tr;
     }
@@ -508,63 +538,27 @@
     const cells = st.subjectResults.map(sub => {
       if (!sub.isPass) {
         const markDisplay = sub.mark === '-' ? '-' : `${sub.mark}*`;
-        return `<td class="${padY} px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 ${fontSize}" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${markDisplay}</td>`;
+        return `<td class="${padY} px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 ${fontSize}" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${markDisplay}</td>`;
       }
-      return `<td class="${padY} px-1 text-center font-mono font-bold text-slate-800 border-x border-slate-200 ${fontSize}">${sub.mark}</td>`;
+      return `<td class="${padY} px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 ${fontSize}">${sub.mark}</td>`;
     }).join('');
 
     const tr = document.createElement('tr');
-    tr.className = `${rowBg} border-b border-slate-200 ${fontSize} transition hover:bg-slate-100/60`;
+    tr.className = `${rowBg} border-b border-slate-400 ${fontSize} transition hover:bg-slate-100/60`;
     tr.innerHTML = `
-      <td class="${padY} px-1 text-center text-slate-500 font-mono text-[10px] border-r border-slate-200 font-bold">${st.sr}</td>
-      <td class="${padY} px-2 text-slate-900 font-bold border-r border-slate-200 whitespace-nowrap ${fontNameSize}">${st.name}</td>
+      <td class="${padY} px-1 text-center text-slate-600 font-mono text-[10px] border border-slate-400 font-bold">${st.sr}</td>
+      <td class="${padY} px-2 text-slate-900 font-bold border border-slate-400 whitespace-nowrap ${fontNameSize}">${st.name}</td>
       ${cells}
-      <td class="${padY} px-1.5 text-center font-mono font-black text-slate-900 bg-slate-100 border-x border-slate-300 ${fontSize}">
+      <td class="${padY} px-1.5 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 ${fontSize}">
         ${st.validTotal}
       </td>
-      <td class="${padY} px-1 text-center font-mono font-black text-slate-800 border-r border-slate-200 ${fontSize}">${st.percentage}%</td>
-      <td class="${padY} px-1 text-center border-r border-slate-200">
+      <td class="${padY} px-1 text-center font-mono font-black text-slate-800 border border-slate-400 ${fontSize}">${st.percentage}%</td>
+      <td class="${padY} px-1 text-center border border-slate-400">
         <span class="font-bold px-1 py-0.2 rounded text-[9px] ${st.badgeClass}">${st.grade}</span>
       </td>
-      <td class="${padY} px-1 text-center border-r border-slate-200 font-bold">${positionBadge}</td>
-      <td class="${padY} px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
-      <td class="${padY} px-2 text-slate-700 font-medium whitespace-nowrap ${fontSize}">${st.remarks}</td>
-    `;
-    return tr;
-  }
-    const isTop3 = st.position <= 3;
-    const rowBg = st.hasFailedSubject 
-      ? 'bg-amber-50/50 hover:bg-amber-100/60' 
-      : (isTop3 ? 'bg-emerald-50/40 font-medium' : (st.sr % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'));
-
-    const positionBadge = st.position === 1 ? `<span class="bg-amber-100 text-amber-900 font-bold px-1.5 py-0.2 rounded text-[8.5px] border border-amber-300">1st</span>`
-      : st.position === 2 ? `<span class="bg-slate-200 text-slate-800 font-bold px-1.5 py-0.2 rounded text-[8.5px] border border-slate-400">2nd</span>`
-      : st.position === 3 ? `<span class="bg-amber-50 text-amber-800 font-bold px-1.5 py-0.2 rounded text-[8.5px] border border-amber-200">3rd</span>`
-      : `<span class="text-slate-600 font-mono text-xs">${getOrdinal(st.position)}</span>`;
-
-    const cells = st.subjectResults.map(sub => {
-      if (!sub.isPass) {
-        const markDisplay = sub.mark === '-' ? '-' : `${sub.mark}*`;
-        return `<td class="${padY} px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 text-xs" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${markDisplay}</td>`;
-      }
-      return `<td class="${padY} px-1 text-center font-mono text-slate-800 border-x border-slate-200 text-xs">${sub.mark}</td>`;
-    }).join('');
-
-    const tr = document.createElement('tr');
-    tr.className = `${rowBg} border-b border-slate-200 text-xs transition hover:bg-slate-100/60`;
-    tr.innerHTML = `
-      <td class="${padY} px-1 text-center text-slate-400 font-mono text-[10px] border-r border-slate-200">${st.sr}</td>
-      <td class="${padY} px-2 text-slate-900 font-semibold border-r border-slate-200 whitespace-nowrap text-xs">${st.name}</td>
-      ${cells}
-      <td class="${padY} px-1.5 text-center font-mono font-extrabold text-slate-900 bg-slate-100 border-x border-slate-300 text-xs">
-        ${st.validTotal}
-      </td>
-      <td class="${padY} px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.percentage}%</td>
-      <td class="${padY} px-1 text-center border-r border-slate-200">
-        <span class="font-bold px-1 py-0.2 rounded text-[9px] ${st.badgeClass}">${st.grade}</span>
-      </td>
-      <td class="${padY} px-1 text-center border-r border-slate-200 font-semibold">${positionBadge}</td>
-      <td class="${padY} px-2 text-slate-700 font-medium whitespace-nowrap text-xs">${st.remarks}</td>
+      <td class="${padY} px-1 text-center border border-slate-400 font-bold">${positionBadge}</td>
+      <td class="${padY} px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${st.attendance || '&mdash;'}</td>
+      <td class="${padY} px-2 text-slate-700 font-medium whitespace-nowrap border border-slate-400 ${fontSize}">${st.remarks}</td>
     `;
     return tr;
   }
@@ -617,8 +611,16 @@
     });
   }
 
+  // Multi-tier reliable rendering execution
+  renderTable();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderTable);
+  }
+  window.addEventListener('load', renderTable);
+  window.addEventListener('beforeprint', renderTable);
+
   document.addEventListener('DOMContentLoaded', () => {
-    renderTable();
     window.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
         e.preventDefault();
