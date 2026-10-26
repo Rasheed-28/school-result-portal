@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Rehman Public Secondary School - Academic Examination Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .logo-sharp { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3.5">
+          <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="School Logo" class="h-12 w-12 object-contain logo-sharp border border-slate-300 rounded-full shadow-sm">
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="text-base font-bold text-slate-900 leading-tight">
+                Al Rehman Public Secondary School Sadwal
+              </h1>
+              <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2 py-0.5 rounded border border-slate-300">Chakwal</span>
+            </div>
+            <p class="text-xs text-slate-500">2nd Term Examination 2026-27 &bull; Principal: <strong class="text-slate-700 font-semibold">Dr. Shaukat Aziz</strong></p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+            &bull; Academic Session 2026-27
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div class="bg-slate-900 text-white rounded-xl p-6 shadow-md relative overflow-hidden">
+      <div class="relative z-10 max-w-2xl">
+        <span class="inline-block bg-amber-400 text-slate-900 font-bold text-xs uppercase px-2.5 py-0.5 rounded-full mb-2">
+          Enter to Learn &mdash; Leave to Serve
+        </span>
+        <h2 class="text-2xl font-black tracking-tight">Academic Result Generation & Printing Hub</h2>
+        <p class="text-slate-300 text-sm mt-1">
+          Generate consolidated mark sheets, failure sheets, and landscape student result cards (2 per page) with automated grade calculation and policy enforcement.
+        </p>
+      </div>
+      <div class="absolute right-4 bottom-2 opacity-10 pointer-events-none">
+        <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="Watermark" class="w-48 h-48 logo-sharp">
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Class Results Directory</h3>
+          <p class="text-xs text-slate-500">Select a class below to generate mark sheets or print landscape student cards</p>
+        </div>
+        <div class="text-xs text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-md shadow-sm">
+          Principal: <strong>Dr. Shaukat Aziz</strong>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded border border-blue-300">
+                Boys Section
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <h4 class="text-xl font-black text-slate-900 mt-2">7th Boys</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Students</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">16</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">84.7%</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Top Mark</span>
+                <span class="font-bold text-emerald-700 font-mono text-sm">426</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-amber-50 border border-amber-200 rounded p-2">
+              <strong>Rules Applied:</strong> Failed marks (&lt;40%) excluded from totals. Incharge hidden on cards. Attendance card added with blank manual write-in space.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="classes/7th_boys/cards.html" class="w-full flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-lg shadow transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+              <span>Print Student Cards (2 per page)</span>
+            </a>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="classes/7th_boys/marksheet.html" class="flex items-center justify-center text-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2 rounded-lg border border-slate-300 transition">
+                <span>Consolidated Mark Sheet</span>
+              </a>
+              <a href="classes/7th_boys/failure_sheet.html" class="flex items-center justify-center text-center bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold py-2 rounded-lg border border-rose-200 transition">
+                <span>Failure Sheet (2)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7th Girls Card -->
+        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-0.5 rounded border border-pink-300">
+                Girls Section
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <h4 class="text-xl font-black text-slate-900 mt-2">7th Girls</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Students</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">12</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">95.3%</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Top Mark</span>
+                <span class="font-bold text-emerald-700 font-mono text-sm">434</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-emerald-50 border border-emerald-200 rounded p-2">
+              <strong>Rules Applied:</strong> Exact 100% data reproduction from official mark sheet. Incharge hidden on result cards. All 12 students passed.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="classes/7th-girls/cards.html" class="w-full flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-lg shadow transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+              <span>Print Student Cards (2 per page)</span>
+            </a>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="classes/7th-girls/marksheet.html" class="flex items-center justify-center text-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2 rounded-lg border border-slate-300 transition">
+                <span>Consolidated Mark Sheet</span>
+              </a>
+              <a href="classes/7th-girls/failure_sheet.html" class="flex items-center justify-center text-center bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-semibold py-2 rounded-lg border border-emerald-200 transition">
+                <span>Failure Sheet (0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-slate-50/50">
+          <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-400 text-xl font-bold mb-3">
+            +
+          </div>
+          <h4 class="text-sm font-bold text-slate-700">Next Class Ready to Import</h4>
+          <p class="text-xs text-slate-400 mt-1 max-w-xs">
+            Provide the next mark sheet image or data and it will automatically generate in this format.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+      <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">School Academic & Grading Guidelines</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="space-y-1.5 text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <span class="font-bold text-slate-900 block">Passing Standards:</span>
+          <div>&bull; <strong>Section A</strong>: 70% minimum passing mark.</div>
+          <div>&bull; <strong>Section B / Boys / Girls</strong>: 40% minimum passing mark.</div>
+          <div>&bull; <strong>Failed Subject Policy</strong>: Marks obtained in failed subjects are strictly excluded from the student's Total Marks.</div>
+        </div>
+        <div class="space-y-1.5 text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <span class="font-bold text-slate-900 block">Grading Scale & Teacher Remarks:</span>
+          <div>&bull; <strong>&le; 100%</strong>: Grade <strong>A+</strong> | Remarks: <em>Excellent</em></div>
+          <div>&bull; <strong>&le; 90%</strong>: Grade <strong>A</strong> | Remarks: <em>Very Good</em></div>
+          <div>&bull; <strong>&le; 80%</strong>: Grade <strong>B</strong> | Remarks: <em>Good</em></div>
+          <div>&bull; <strong>&le; 70%</strong>: Grade <strong>C</strong> | Remarks: <em>Satisfactory</em></div>
+          <div>&bull; <strong>&le; 60%</strong>: Grade <strong>D</strong> | Remarks: <em>Work Hard</em></div>
+          <div>&bull; <strong>&le; 50%</strong>: Grade <strong>E</strong> | Remarks: <em>Poor</em></div>
+          <div>&bull; <strong>&lt; 40%</strong>: Grade <strong>F</strong> | Remarks: <em>Fail</em></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
