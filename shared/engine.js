@@ -90,13 +90,16 @@ function processClass(classData, passRateOverride = null) {
     let subjectResults = [];
 
     subjectList.forEach(sub => {
-      const mark = data.marks[sub.title] !== undefined ? data.marks[sub.title] : 0;
+      const val = data.marks[sub.title];
+      const isNumeric = typeof val === 'number' && !isNaN(val);
+      const numVal = isNumeric ? val : 0;
+      const mark = val !== undefined ? val : '-';
       const passingMin = Math.ceil(sub.maxMarks * passRate);
-      const isPass = mark >= passingMin;
+      const isPass = isNumeric && numVal >= passingMin;
 
-      rawTotal += mark;
+      rawTotal += numVal;
       if (isPass) {
-        validTotal += mark;
+        validTotal += numVal;
       } else {
         failedSubjects.push({
           title: sub.title,
