@@ -55,6 +55,35 @@ function processClass(classData, passRateOverride = null) {
 
   // Process all students from dictionary
   const processed = Object.entries(classData.students).map(([studentName, data]) => {
+    // Handle SLC (School Leaving Certificate)
+    if (data.status === 'SLC' || data.isSLC) {
+      return {
+        sr: data.rollNo,
+        rollNo: data.rollNo,
+        name: studentName,
+        isSLC: true,
+        status: 'SLC',
+        subjectResults: subjectList.map(sub => ({
+          title: sub.title,
+          maxMarks: sub.maxMarks,
+          passingMin: Math.ceil(sub.maxMarks * passRate),
+          mark: '-',
+          isPass: false
+        })),
+        rawTotal: 0,
+        validTotal: 0,
+        excludedMarks: 0,
+        failedSubjects: [],
+        hasFailedSubject: false,
+        totalMax: totalMax,
+        percentage: 0,
+        grade: 'SLC',
+        remarks: 'School Leaving Certificate',
+        badgeClass: 'bg-slate-100 text-slate-500 border-slate-300',
+        position: '-'
+      };
+    }
+
     let rawTotal = 0;
     let validTotal = 0;
     let failedSubjects = [];
@@ -115,6 +144,8 @@ function processClass(classData, passRateOverride = null) {
       sr: data.rollNo,
       rollNo: data.rollNo,
       name: studentName,
+      isSLC: false,
+      status: 'Active',
       subjectResults: subjectResults,
       rawTotal: rawTotal,
       validTotal: validTotal,
@@ -130,8 +161,9 @@ function processClass(classData, passRateOverride = null) {
     };
   });
 
-  // Assign positions by validTotal desc
-  const sorted = [...processed].sort((a, b) => b.validTotal - a.validTotal);
+  // Assign positions by validTotal desc (active students only)
+  const activeStudents = processed.filter(s => !s.isSLC);
+  const sorted = [...activeStudents].sort((a, b) => b.validTotal - a.validTotal);
   sorted.forEach((st, idx) => {
     st.position = idx + 1;
   });
@@ -139,10 +171,10 @@ function processClass(classData, passRateOverride = null) {
   // Re-sort by Roll No
   processed.sort((a, b) => a.rollNo - b.rollNo);
 
-  const totalObtainedSum = processed.reduce((sum, s) => sum + s.validTotal, 0);
-  const classAvgPct = (totalObtainedSum / (processed.length * totalMax) * 100).toFixed(2);
+  const totalObtainedSum = activeStudents.reduce((sum, s) => sum + s.validTotal, 0);
+  const classAvgPct = activeStudents.length > 0 ? (totalObtainedSum / (activeStudents.length * totalMax) * 100).toFixed(2) : "0.00";
   const topStudent = sorted[0];
-  const failedStudents = processed.filter(s => s.hasFailedSubject);
+  const failedStudents = activeStudents.filter(s => s.hasFailedSubject);
 
   return {
     meta: {
@@ -151,6 +183,8 @@ function processClass(classData, passRateOverride = null) {
       passPercentLabel: Math.round(passRate * 100) + "%",
       totalMaxMarks: totalMax,
       enrolledCount: processed.length,
+      activeCount: activeStudents.length,
+      slcCount: processed.length - activeStudents.length,
       classAveragePct: classAvgPct,
       topStudent: topStudent,
       failedStudentsCount: failedStudents.length,
