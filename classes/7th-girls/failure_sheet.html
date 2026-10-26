@@ -30,6 +30,14 @@
       size: A4 landscape;
       margin: 0;
     }
+    /* Cell Partitioning for Tables (Screen & Print) */
+    table {
+      border-collapse: collapse !important;
+    }
+    table th, table td {
+      border: 1px solid #64748b;
+    }
+
     @media print {
       html, body {
         width: 297mm !important;
@@ -67,6 +75,22 @@
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
+      }
+      /* High-contrast cell partitioning for black & white printing */
+      table {
+        border: 1.5px solid #0f172a !important;
+        border-collapse: collapse !important;
+      }
+      table th, table td {
+        border: 1px solid #1e293b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      thead th {
+        border: 1px solid #0f172a !important;
+      }
+      tbody td {
+        border: 1px solid #1e293b !important;
       }
     }
     @media screen {
@@ -308,18 +332,18 @@
       `).join('');
 
       tr.innerHTML = `
-        <td class="py-3 px-2 text-center text-slate-500 font-mono border-r border-slate-200 font-bold text-xs">${idx + 1}</td>
-        <td class="py-3 px-2 text-center font-mono text-slate-900 font-black border-r border-slate-200 text-sm">#${String(st.rollNo).padStart(2, '0')}</td>
-        <td class="py-3 px-3 font-black text-slate-900 border-r border-slate-200 text-sm">${st.name}</td>
-        <td class="py-3 px-3 border-r border-slate-200 leading-normal">${failedSubsHtml}</td>
-        <td class="py-3 px-2 text-center font-black text-rose-700 border-r border-slate-200 font-mono text-xs">${st.failedSubjects.length} Sub(s)</td>
-        <td class="py-3 px-2 text-center font-mono text-rose-700 font-black border-r border-slate-200 bg-rose-50/60 text-sm">${st.excludedMarks}</td>
-        <td class="py-3 px-2 text-center font-mono font-black text-slate-900 border-r border-slate-200 bg-slate-100 text-sm">${st.validTotal}</td>
-        <td class="py-3 px-2 text-center font-mono font-black text-slate-800 border-r border-slate-200 text-sm">${st.percentage}%</td>
-        <td class="py-3 px-2 text-center border-r border-slate-200">
+        <td class="py-2 px-2 text-center text-slate-600 font-mono border border-slate-400 font-bold text-xs">${idx + 1}</td>
+        <td class="py-2 px-2 text-center font-mono text-slate-900 font-black border border-slate-400 text-sm">#${String(st.rollNo).padStart(2, '0')}</td>
+        <td class="py-2 px-3 font-black text-slate-900 border border-slate-400 text-sm">${st.name}</td>
+        <td class="py-2 px-3 border border-slate-400 leading-normal">${failedSubsHtml}</td>
+        <td class="py-2 px-2 text-center font-black text-rose-700 border border-slate-400 font-mono text-xs">${st.failedSubjects.length} Sub(s)</td>
+        <td class="py-2 px-2 text-center font-mono text-rose-700 font-black border border-slate-400 bg-rose-50/60 text-sm">${st.excludedMarks}</td>
+        <td class="py-2 px-2 text-center font-mono font-black text-slate-900 border border-slate-400 bg-slate-100 text-sm">${st.validTotal}</td>
+        <td class="py-2 px-2 text-center font-mono font-black text-slate-800 border border-slate-400 text-sm">${st.percentage}%</td>
+        <td class="py-2 px-2 text-center border border-slate-400">
           <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="py-3 px-3 font-semibold text-slate-700 text-xs">${st.remarks}</td>
+        <td class="py-2 px-3 font-semibold text-slate-700 text-xs border border-slate-400">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
     });
