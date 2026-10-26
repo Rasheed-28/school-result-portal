@@ -31,7 +31,7 @@
     
     /* Exact A4 Landscape PDF Print Geometry */
     @page {
-      size: 297mm 210mm;
+      size: A4 landscape;
       margin: 0;
     }
     
@@ -64,13 +64,16 @@
         break-after: page !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        margin: 0 !important;
-        padding: 4.5mm 8mm !important;
+        margin: 0 auto !important;
+        padding: 8mm 10mm !important;
         box-sizing: border-box !important;
         border: none !important;
         box-shadow: none !important;
         overflow: hidden !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
       }
       .landscape-sheet:last-child {
         page-break-after: avoid !important;
@@ -81,7 +84,7 @@
     @media screen {
       #cards-container {
         width: 100%;
-        max-width: 1240px;
+        max-width: 1280px;
         margin: 0 auto;
         padding: 24px 0;
         display: flex;
@@ -92,14 +95,16 @@
         width: 297mm;
         height: 210mm;
         max-height: 210mm;
-        padding: 4.5mm 8mm;
+        padding: 8mm 10mm;
         box-sizing: border-box;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 24px;
+        margin: 0 auto 24px auto;
         background: #ffffff;
         border-radius: 8px;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -111,7 +116,7 @@
       flex-direction: row !important;
       align-items: stretch !important;
       justify-content: space-between !important;
-      gap: 16px !important;
+      gap: 12mm !important;
       box-sizing: border-box !important;
     }
     .card-wrapper {
@@ -134,13 +139,13 @@
       position: relative !important;
     }
     .cutter-gutter {
-      width: 28px !important;
+      width: 18px !important;
       flex-shrink: 0 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: space-between !important;
-      padding: 8px 0 !important;
+      padding: 6px 0 !important;
       color: #94a3b8 !important;
       user-select: none !important;
       box-sizing: border-box !important;
@@ -358,7 +363,7 @@
   }
 
   function renderAllCards() {
-    const rawData = (typeof CLASS_DATA !== 'undefined') ? CLASS_DATA : (typeof CLASS_7TH_GIRLS_DATA !== 'undefined' ? CLASS_7TH_GIRLS_DATA : null);
+    const rawData = (typeof CLASS_DATA !== 'undefined') ? CLASS_DATA : (typeof CLASS_7TH_BOYS_DATA !== 'undefined' ? CLASS_7TH_BOYS_DATA : (typeof CLASS_5TH_BOYS_DATA !== 'undefined' ? CLASS_5TH_BOYS_DATA : null));
     if (!rawData) {
       console.error("No class data loaded from data.js");
       return;
@@ -367,9 +372,12 @@
     const container = document.getElementById('cards-container');
     container.innerHTML = '';
 
-    for (let i = 0; i < classData.students.length; i += 2) {
-      const st1 = classData.students[i];
-      const st2 = classData.students[i + 1];
+    const printableStudents = classData.students;
+    const totalPages = Math.ceil(printableStudents.length / 2);
+
+    for (let i = 0; i < printableStudents.length; i += 2) {
+      const st1 = printableStudents[i];
+      const st2 = printableStudents[i + 1];
       const pageNum = Math.floor(i / 2) + 1;
 
       const pageEl = document.createElement('div');
@@ -382,7 +390,7 @@
             ${renderResultCard(st1, classData)}
           </div>
           
-          <!-- Center Cutting Gutter (Width: 28px, Symmetrically Centered) -->
+          <!-- Center Cutting Gutter (Exact Symmetrical Center) -->
           <div class="cutter-gutter">
             <div class="flex flex-col items-center text-xs">
               <span>✂</span>
@@ -400,12 +408,13 @@
             ${st2 ? renderResultCard(st2, classData) : '<div class="card-box border-2 border-dashed border-slate-200 rounded-lg flex items-center justify-center text-slate-400 font-medium">End of Class Roster</div>'}
           </div>
         </div>
-
-        <div class="no-print mt-1 text-right text-[10px] text-slate-400 font-medium">
-          Page ${pageNum} of ${Math.ceil(classData.students.length / 2)} &bull; Landscape Print (2 Students Per Sheet)
-        </div>
       `;
       container.appendChild(pageEl);
+
+      const infoEl = document.createElement('div');
+      infoEl.className = 'no-print text-center text-xs text-slate-400 font-medium w-full mb-6 -mt-3';
+      infoEl.innerHTML = `Sheet ${pageNum} of ${totalPages} &bull; Landscape Print (2 Students Per Sheet)`;
+      container.appendChild(infoEl);
     }
   }
 
