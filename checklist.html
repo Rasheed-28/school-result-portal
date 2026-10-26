@@ -406,6 +406,8 @@
     { id: "pg", name: "Play Group", wing: "Pre-Primary", incharge: "Sadia Bibi", strength: 20, url: null },
     { id: "kg1_a", name: "KG 1 A", wing: "Pre-Primary", incharge: "Tahira Kausar", strength: 22, url: null },
     { id: "kg1_b", name: "KG 1 B", wing: "Pre-Primary", incharge: "Samina Yasmeen", strength: 21, url: null },
+    { id: "kg2_a", name: "KG 2 A", wing: "Pre-Primary", incharge: "Tahira Kausar", strength: 22, url: null },
+    { id: "kg2_b", name: "KG 2 B", wing: "Pre-Primary", incharge: "Samina Yasmeen", strength: 21, url: null },
 
     // Primary Wing: Prep 1 to Prep 4 (A & B)
     { id: "prep1_a", name: "Prep 1 A", wing: "Primary", incharge: "Nadia Parveen", strength: 24, url: null },
@@ -481,10 +483,13 @@
     const failCount = checklistState.filter(c => c.failurePrinted).length;
     const readyCount = checklistState.filter(c => c.sheetPrinted && c.cardsPrinted && c.verified).length;
 
-    const sheetsPct = Math.round((sheetsCount / total) * 100);
-    const cardsPct = Math.round((cardsCount / total) * 100);
-    const failPct = Math.round((failCount / total) * 100);
-    const readyPct = Math.round((readyCount / total) * 100);
+    const sheetsPct = total > 0 ? Math.round((sheetsCount / total) * 100) : 0;
+    const cardsPct = total > 0 ? Math.round((cardsCount / total) * 100) : 0;
+    const failPct = total > 0 ? Math.round((failCount / total) * 100) : 0;
+    const readyPct = total > 0 ? Math.round((readyCount / total) * 100) : 0;
+
+    const badgeTotal = document.getElementById('badge-total-classes');
+    if (badgeTotal) badgeTotal.textContent = `${total} Classes`;
 
     // Update counts & badges
     document.getElementById('kpi-sheets-count').textContent = sheetsCount;
@@ -502,6 +507,30 @@
     document.getElementById('kpi-ready-count').textContent = readyCount;
     document.getElementById('kpi-ready-badge').textContent = readyPct + '%';
     document.getElementById('kpi-ready-bar').style.width = readyPct + '%';
+
+    // Update filter counts
+    const preCount = checklistState.filter(c => c.wing === 'Pre-Primary').length;
+    const primCount = checklistState.filter(c => c.wing === 'Primary').length;
+    const midCount = checklistState.filter(c => c.wing === 'Middle').length;
+
+    const btnAll = document.getElementById('btn-filter-all');
+    if (btnAll) btnAll.textContent = `All (${total})`;
+    const btnPre = document.getElementById('btn-filter-pre');
+    if (btnPre) btnPre.textContent = `Pre-Primary (${preCount})`;
+    const btnPrim = document.getElementById('btn-filter-primary');
+    if (btnPrim) btnPrim.textContent = `Primary (${primCount})`;
+    const btnMid = document.getElementById('btn-filter-middle');
+    if (btnMid) btnMid.textContent = `Middle (${midCount})`;
+
+    // Update / XX classes labels
+    const sheetSub = document.querySelector('#kpi-sheets-count + span');
+    if (sheetSub) sheetSub.textContent = `/ ${total} Classes`;
+    const cardSub = document.querySelector('#kpi-cards-count + span');
+    if (cardSub) cardSub.textContent = `/ ${total} Classes`;
+    const failSub = document.querySelector('#kpi-fail-count + span');
+    if (failSub) failSub.textContent = `/ ${total} Classes`;
+    const readySub = document.querySelector('#kpi-ready-count + span');
+    if (readySub) readySub.textContent = `/ ${total} Complete`;
   }
 
   function renderTable() {
