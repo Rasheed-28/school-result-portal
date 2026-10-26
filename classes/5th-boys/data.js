@@ -186,14 +186,8 @@ const CLASS_DATA = {
         "Oral Assessment": 10
       }
     },
-    "Muhammad Araiz": {
-      rollNo: 11,
-      status: "SLC",
-      isSLC: true,
-      marks: {}
-    },
     "Safeer Ali": {
-      rollNo: 12,
+      rollNo: 11,
       marks: {
         "English": 41,
         "Urdu": 34,
@@ -208,7 +202,7 @@ const CLASS_DATA = {
       }
     },
     "Saifullah Akmal": {
-      rollNo: 13,
+      rollNo: 12,
       marks: {
         "English": 44,
         "Urdu": 23,
@@ -223,7 +217,7 @@ const CLASS_DATA = {
       }
     },
     "Abdul Manan": {
-      rollNo: 14,
+      rollNo: 13,
       marks: {
         "English": 45,
         "Urdu": 22,
@@ -238,7 +232,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Hamza": {
-      rollNo: 15,
+      rollNo: 14,
       marks: {
         "English": 43,
         "Urdu": 25,
@@ -253,7 +247,7 @@ const CLASS_DATA = {
       }
     },
     "Sultan Waheed": {
-      rollNo: 16,
+      rollNo: 15,
       marks: {
         "English": 45,
         "Urdu": 46,
@@ -268,7 +262,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Ismail": {
-      rollNo: 17,
+      rollNo: 16,
       marks: {
         "English": 48,
         "Urdu": 38,
@@ -283,7 +277,7 @@ const CLASS_DATA = {
       }
     },
     "Awais Zaman": {
-      rollNo: 18,
+      rollNo: 17,
       marks: {
         "English": 39,
         "Urdu": 33,
@@ -298,7 +292,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Manan Ali": {
-      rollNo: 19,
+      rollNo: 18,
       marks: {
         "English": 50,
         "Urdu": 49,
@@ -313,7 +307,7 @@ const CLASS_DATA = {
       }
     },
     "Ghafoor Haider": {
-      rollNo: 20,
+      rollNo: 19,
       marks: {
         "English": 46,
         "Urdu": 26,
@@ -328,7 +322,7 @@ const CLASS_DATA = {
       }
     },
     "Arslan Siddique": {
-      rollNo: 21,
+      rollNo: 20,
       marks: {
         "English": 49,
         "Urdu": 45,
@@ -343,7 +337,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Haseeb Ejaz": {
-      rollNo: 22,
+      rollNo: 21,
       marks: {
         "English": 48,
         "Urdu": 39,
@@ -358,7 +352,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Uzair": {
-      rollNo: 23,
+      rollNo: 22,
       marks: {
         "English": 41,
         "Urdu": 44,
@@ -373,7 +367,7 @@ const CLASS_DATA = {
       }
     },
     "Haseeb Tariq": {
-      rollNo: 24,
+      rollNo: 23,
       marks: {
         "English": 33,
         "Urdu": 30,
@@ -388,7 +382,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Waleed": {
-      rollNo: 25,
+      rollNo: 24,
       marks: {
         "English": 48,
         "Urdu": 33,
@@ -403,7 +397,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Rehan": {
-      rollNo: 26,
+      rollNo: 25,
       marks: {
         "English": 46,
         "Urdu": 35,
@@ -418,7 +412,7 @@ const CLASS_DATA = {
       }
     },
     "Arslan Tariq": {
-      rollNo: 27,
+      rollNo: 26,
       marks: {
         "English": 38,
         "Urdu": 34,
@@ -433,7 +427,7 @@ const CLASS_DATA = {
       }
     },
     "Faizan Shoaib": {
-      rollNo: 28,
+      rollNo: 27,
       marks: {
         "English": 41,
         "Urdu": 32,
@@ -448,7 +442,7 @@ const CLASS_DATA = {
       }
     },
     "Ali Hassan": {
-      rollNo: 29,
+      rollNo: 28,
       marks: {
         "English": 46,
         "Urdu": 40,
@@ -463,7 +457,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Shair": {
-      rollNo: 30,
+      rollNo: 29,
       marks: {
         "English": 40,
         "Urdu": 33,
@@ -478,7 +472,7 @@ const CLASS_DATA = {
       }
     },
     "Saifullah Mubashir": {
-      rollNo: 31,
+      rollNo: 30,
       marks: {
         "English": 35,
         "Urdu": 17,
@@ -493,7 +487,7 @@ const CLASS_DATA = {
       }
     },
     "Muhammad Usman Haider": {
-      rollNo: 32,
+      rollNo: 31,
       marks: {
         "English": 45,
         "Urdu": 49,
@@ -508,7 +502,7 @@ const CLASS_DATA = {
       }
     },
     "Farhan Sajid": {
-      rollNo: 33,
+      rollNo: 32,
       marks: {
         "English": 45,
         "Urdu": 48,

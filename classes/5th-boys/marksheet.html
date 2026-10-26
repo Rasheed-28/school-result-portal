@@ -186,7 +186,7 @@
 
   <div class="marksheet-container">
 
-    <!-- ==================== PAGE 1 (Roll #01 to #18) ==================== -->
+    <!-- ==================== PAGE 1 (Roll #01 to #17) ==================== -->
     <div class="marksheet-page bg-white rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between" id="page-1">
       
       <!-- Page 1 Header with High-Contrast Class & Incharge Badges -->
@@ -245,7 +245,7 @@
       <div class="grid grid-cols-5 gap-2 my-1 text-center text-xs">
         <div class="bg-slate-50 border border-slate-200 rounded-lg p-1.5">
           <span class="block text-[10px] uppercase font-bold text-slate-500">Total Enrolled</span>
-          <span class="font-black text-slate-900 font-mono text-sm" id="total-enrolled">33 Students (1 SLC)</span>
+          <span class="font-black text-slate-900 font-mono text-sm" id="total-enrolled">32 Students (1 SLC)</span>
         </div>
         <div class="bg-slate-50 border border-slate-200 rounded-lg p-1.5">
           <span class="block text-[10px] uppercase font-bold text-slate-500">Passing Standard</span>
@@ -265,7 +265,7 @@
         </div>
       </div>
 
-      <!-- Page 1 Consolidated Table (Students 1 to 18) -->
+      <!-- Page 1 Consolidated Table (Students 1 to 17) -->
       <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-sm">
           <thead>
@@ -307,7 +307,7 @@
             </tr>
           </thead>
           <tbody id="table-body-page1">
-            <!-- Populated via JavaScript (Rows 1 to 18) -->
+            <!-- Populated via JavaScript (Rows 1 to 17) -->
           </tbody>
         </table>
       </div>
@@ -315,14 +315,14 @@
       <!-- Page 1 Footer Strip -->
       <div class="mt-1 pt-1 border-t border-slate-300 flex items-center justify-between text-[9px] text-slate-500 font-medium">
         <div>* Marks with red background failed (&lt;40%) and are EXCLUDED from the Total Marks.</div>
-        <div class="font-bold text-slate-700">Page 1 of 2 &bull; Continued on Page 2 (Roll #19 to #33) &rarr;</div>
+        <div class="font-bold text-slate-700">Page 1 of 2 &bull; Continued on Page 2 (Roll #18 to #32) &rarr;</div>
         <div>Al Rehman Public Secondary School Sadwal</div>
       </div>
 
     </div>
 
 
-    <!-- ==================== PAGE 2 (Roll #19 to #33 + Signatures) ==================== -->
+    <!-- ==================== PAGE 2 (Roll #18 to #32 + Signatures) ==================== -->
     <div class="marksheet-page bg-white rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between" id="page-2">
       
       <!-- Page 2 Header with High-Contrast Class & Incharge Badges -->
@@ -379,11 +379,11 @@
 
       <!-- Page 2 Sub-Banner -->
       <div class="bg-slate-100 border border-slate-300 rounded-lg px-4 py-1 my-1 flex items-center justify-between text-xs font-semibold text-slate-800">
-        <span class="font-black text-slate-900 uppercase text-xs">Award List Continuation &bull; Roll #19 to #33 (Final 15 Students)</span>
+        <span class="font-black text-slate-900 uppercase text-xs">Award List Continuation &bull; Roll #18 to #32 (Final 15 Students)</span>
         <span class="text-xs text-slate-600 font-medium">Evaluation Criteria: 40% Minimum Subject Pass Mark &bull; Failed Marks Strictly Excluded</span>
       </div>
 
-      <!-- Page 2 Consolidated Table (Students 19 to 33) -->
+      <!-- Page 2 Consolidated Table (Students 18 to 32) -->
       <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-sm">
           <thead>
@@ -425,7 +425,7 @@
             </tr>
           </thead>
           <tbody id="table-body-page2">
-            <!-- Populated via JavaScript (Rows 19 to 33) -->
+            <!-- Populated via JavaScript (Rows 18 to 32) -->
           </tbody>
         </table>
       </div>
@@ -434,8 +434,8 @@
       <div class="grid grid-cols-4 gap-2.5 my-1.5 text-center text-xs">
         <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
           <span class="block text-[9px] uppercase font-bold text-slate-500">Class Total Enrolled</span>
-          <span class="font-black text-slate-900 font-mono text-sm">33 Students</span>
-          <span class="text-[10px] text-slate-600 block mt-0.5">32 Active &bull; 1 SLC</span>
+          <span class="font-black text-slate-900 font-mono text-sm">32 Students</span>
+          <span class="text-[10px] text-slate-600 block mt-0.5">32 Active Students</span>
         </div>
         <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
           <span class="block text-[9px] uppercase font-bold text-emerald-700">Passed in All Subjects</span>
@@ -567,9 +567,9 @@
       }
       const classData = processClass(rawData);
       
-      // Page 1: Rows 1 to 18 (18 students)
-      // Page 2: Rows 19 to 33 (15 students)
-      const PAGE_1_LIMIT = 18;
+      // Page 1: Rows 1 to 17 (18 students)
+      // Page 2: Rows 18 to 32 (15 students)
+      const PAGE_1_LIMIT = 17;
       const page1Students = classData.students.slice(0, PAGE_1_LIMIT);
       const page2Students = classData.students.slice(PAGE_1_LIMIT);
 
@@ -580,7 +580,7 @@
 
       // Page 1 KPIs
       const elEnrolled = document.getElementById('total-enrolled');
-      if (elEnrolled) elEnrolled.textContent = `${classData.meta.enrolledCount} Students${classData.meta.slcCount ? ` (${classData.meta.slcCount} SLC)` : ''}`;
+      if (elEnrolled) elEnrolled.textContent = `${classData.meta.enrolledCount} Students`;
       const elAvg = document.getElementById('class-avg');
       if (elAvg) elAvg.textContent = `${classData.meta.classAveragePct}%`;
       const elPos = document.getElementById('first-pos');
