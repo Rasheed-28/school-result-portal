@@ -67,7 +67,7 @@
         break-after: avoid !important;
         break-inside: avoid !important;
         margin: 0 auto !important;
-        padding: 4mm 8mm !important;
+        padding: 6mm 10mm !important;
         box-sizing: border-box !important;
         border: none !important;
         border-radius: 0 !important;
@@ -102,7 +102,7 @@
     }
     @media screen {
       .marksheet-container {
-        padding: 16px 0;
+        padding: 24px 0;
         max-width: 1280px;
         margin: 0 auto;
         display: flex;
@@ -112,9 +112,9 @@
       .marksheet-page {
         width: 297mm;
         min-height: 210mm;
-        padding: 4mm 8mm;
+        padding: 6mm 10mm;
         box-sizing: border-box;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 24px auto;
         background: #ffffff;
       }
     }
@@ -165,24 +165,24 @@
     <div class="marksheet-page bg-white p-3.5 rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between">
       
             <!-- Header with High-Contrast Class & Incharge Prominence -->
-      <div class="border-b-2 border-slate-900 pb-1 mb-1">
+      <div class="border-b-2 border-slate-900 pb-2 mb-2">
         <div class="flex items-center justify-between">
           <!-- Left: School Crest & Title -->
-          <div class="flex items-center space-x-2.5">
-            <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="Logo" class="h-11 w-11 object-contain logo-sharp">
+          <div class="flex items-center space-x-3.5">
+            <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="Logo" class="h-16 w-16 object-contain logo-sharp">
             <div>
-              <h1 class="text-base font-black tracking-tight text-slate-900 uppercase leading-none">
+              <h1 class="text-lg font-black tracking-tight text-slate-900 uppercase leading-none">
                 Al Rehman Public Secondary School Sadwal
               </h1>
-              <div class="flex items-center space-x-2 text-[9.5px] text-slate-600 mt-0.5 font-medium">
+              <div class="flex items-center space-x-2 text-xs text-slate-600 mt-1 font-medium">
                 <span class="font-bold text-slate-800">Sadwal (Chakwal)</span>
                 <span>&bull;</span>
                 <span class="italic font-serif">"Enter to Learn - Leave to Serve"</span>
                 <span>&bull;</span>
                 <span class="font-bold text-slate-800">Academic Session 2026-27</span>
               </div>
-              <div class="mt-0.5">
-                <span class="inline-block bg-slate-900 text-amber-300 font-extrabold text-[9.5px] px-2 py-0.2 rounded shadow-sm tracking-wider uppercase">
+              <div class="mt-1">
+                <span class="inline-block bg-slate-900 text-amber-300 font-extrabold text-[11px] px-2.5 py-0.5 rounded shadow-sm tracking-wider uppercase">
                   Consolidated Mark Sheet &bull; 2nd Term Examination
                 </span>
               </div>
@@ -190,26 +190,26 @@
           </div>
 
           <!-- Right: Prominent Badges for Class, Incharge, and Meta -->
-          <div class="flex items-stretch space-x-1.5 text-right">
+          <div class="flex items-stretch space-x-2 text-right">
             <!-- Class Badge Card -->
-            <div class="bg-slate-900 text-white px-2.5 py-0.5 rounded shadow-sm flex flex-col justify-center items-center min-w-[95px] border border-slate-800">
-              <span class="text-[8px] uppercase font-bold tracking-wider text-slate-300">Class & Section</span>
-              <span class="text-xs font-black text-amber-300 tracking-wide uppercase leading-tight">7th Boys</span>
+            <div class="bg-slate-900 text-white px-4 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-center min-w-[130px] border border-slate-800">
+              <span class="text-[9.5px] uppercase font-bold tracking-wider text-slate-300">Class & Section</span>
+              <span class="text-base font-black text-amber-300 tracking-wide uppercase leading-tight">7th Boys</span>
             </div>
             <!-- Class Incharge Card -->
-            <div class="bg-amber-50 border-2 border-amber-300 text-amber-950 px-2.5 py-0.5 rounded shadow-sm flex flex-col justify-center items-center min-w-[110px]">
-              <span class="text-[8px] uppercase font-bold tracking-wider text-amber-800">Class Incharge</span>
-              <span class="text-[11px] font-black text-slate-900 leading-tight">Laiba Batool</span>
+            <div class="bg-amber-50 border-2 border-amber-300 text-amber-950 px-4 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-center min-w-[155px]">
+              <span class="text-[9.5px] uppercase font-bold tracking-wider text-amber-800">Class Incharge</span>
+              <span class="text-sm font-black text-slate-900 leading-tight">Laiba Batool</span>
             </div>
             <!-- Exam Meta Card -->
-            <div class="bg-slate-50 border border-slate-300 px-2 py-0.5 rounded shadow-sm flex flex-col justify-center items-start text-xs font-semibold text-slate-700">
-              <div class="flex items-center space-x-1">
-                <span class="text-slate-500 uppercase text-[8px] font-bold">Max Marks:</span>
-                <strong class="text-slate-900 font-mono text-xs">435</strong>
+            <div class="bg-slate-50 border border-slate-300 px-3 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-start text-xs font-semibold text-slate-700">
+              <div class="flex items-center space-x-1.5">
+                <span class="text-slate-500 uppercase text-[9px] font-bold">Max Marks:</span>
+                <strong class="text-slate-900 font-mono text-sm">435</strong>
               </div>
-              <div class="flex items-center space-x-1 mt-0.2">
-                <span class="text-slate-500 uppercase text-[8px] font-bold">Passing:</span>
-                <strong class="text-rose-700 text-[9.5px] font-bold">40% Minimum</strong>
+              <div class="flex items-center space-x-1.5 mt-0.5">
+                <span class="text-slate-500 uppercase text-[9px] font-bold">Passing:</span>
+                <strong class="text-rose-700 text-xs font-bold">40% Minimum</strong>
               </div>
             </div>
           </div>
@@ -217,30 +217,30 @@
       </div>
 
             <!-- Quick KPI Stats Bar -->
-      <div class="grid grid-cols-5 gap-1.5 my-1 text-center text-xs">
-        <div class="bg-slate-50 border border-slate-200 rounded p-1">
-          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Total Enrolled</span>
-          <span class="font-black text-slate-900 font-mono text-xs" id="total-enrolled">16 Students</span>
+      <div class="grid grid-cols-5 gap-2 my-2 text-center text-xs">
+        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
+          <span class="block text-[10px] uppercase font-bold text-slate-500">Total Enrolled</span>
+          <span class="font-black text-slate-900 font-mono text-base" id="total-enrolled">16 Students</span>
         </div>
-        <div class="bg-slate-50 border border-slate-200 rounded p-1">
-          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Passing Standard</span>
-          <span class="font-bold text-slate-900 text-[10.5px]">40% (Boys Section)</span>
+        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
+          <span class="block text-[10px] uppercase font-bold text-slate-500">Passing Standard</span>
+          <span class="font-bold text-slate-900 text-sm">40% (Boys Section)</span>
         </div>
-        <div class="bg-slate-50 border border-slate-200 rounded p-1">
-          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Class Average</span>
-          <span class="font-black text-slate-900 font-mono text-xs" id="class-avg">&mdash;</span>
+        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
+          <span class="block text-[10px] uppercase font-bold text-slate-500">Class Average</span>
+          <span class="font-black text-slate-900 font-mono text-base" id="class-avg">&mdash;</span>
         </div>
-        <div class="bg-emerald-50 border border-emerald-200 rounded p-1">
-          <span class="block text-[8.5px] uppercase font-bold text-emerald-700">1st Position Holder</span>
-          <span class="font-black text-emerald-900 text-[10.5px] truncate block" id="first-pos">&mdash;</span>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
+          <span class="block text-[10px] uppercase font-bold text-emerald-700">1st Position Holder</span>
+          <span class="font-black text-emerald-900 text-sm truncate block" id="first-pos">&mdash;</span>
         </div>
-        <div class="bg-blue-50 border border-blue-200 rounded p-1">
-          <span class="block text-[8.5px] uppercase font-bold text-blue-700">Policy Standard</span>
-          <span class="font-bold text-blue-900 text-[10px]">Failed Marks Excluded</span>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-2">
+          <span class="block text-[10px] uppercase font-bold text-blue-700">Policy Standard</span>
+          <span class="font-bold text-blue-900 text-xs">Failed Marks Excluded</span>
         </div>
       </div>
 
-      <!-- Consolidated Table: All 16 students visible with crisp single-line layout -->
+      <!-- Consolidated Table with LARGER FONT (text-xs / 12px) -->
       <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-xs">
           <thead>
@@ -267,22 +267,22 @@
               <th class="py-1 px-2 text-left whitespace-nowrap">Teacher Remarks</th>
             </tr>
             <tr class="bg-slate-200 text-slate-900 font-bold text-sm text-center border-b-2 border-slate-500 whitespace-nowrap">
-              <td colspan="2" class="py-0.5 px-2 text-left font-black uppercase whitespace-nowrap text-[10px] text-slate-800">Maximum Marks &rarr;</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">5</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
-              <td class="py-0.5 px-1.5 font-mono font-black bg-slate-300 text-slate-900 text-sm">435</td>
-              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">100%</td>
-              <td colspan="4" class="py-0.5 px-1 text-slate-600 font-semibold whitespace-nowrap text-[9.5px]">Pass Mark: 40%</td>
+              <td colspan="2" class="py-1 px-2 text-left font-black uppercase whitespace-nowrap text-[10.5px] text-slate-800">Maximum Marks &rarr;</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">5</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-1 px-1.5 font-mono font-black bg-slate-300 text-slate-900 text-sm">435</td>
+              <td class="py-1 px-1 font-mono font-bold text-slate-900 text-sm">100%</td>
+              <td colspan="4" class="py-1 px-1 text-slate-600 font-semibold whitespace-nowrap text-[10px]">Pass Mark: 40%</td>
             </tr>
           </thead>
           <tbody id="table-body">
@@ -292,9 +292,9 @@
       </div>
 
             <!-- Grading Scale Legend & Rule Footnote -->
-      <div class="mt-1 pt-0.5 border-t border-slate-300">
-        <div class="flex items-center justify-between text-[9px] bg-slate-50 py-1 px-2 rounded border border-slate-200 text-slate-700">
-          <div class="space-x-1 font-medium">
+      <div class="mt-2 pt-1 border-t border-slate-300">
+        <div class="flex items-center justify-between text-[10px] bg-slate-50 p-2 rounded-lg border border-slate-200 text-slate-700">
+          <div class="space-x-1.5 font-medium">
             <span class="font-black text-slate-900 uppercase">Grading Scale:</span>
             <span>&le;100%: <strong class="text-emerald-700 font-bold">A+</strong> (Excellent)</span> &bull;
             <span>&le;90%: <strong class="text-blue-700 font-bold">A</strong> (Very Good)</span> &bull;
@@ -311,16 +311,16 @@
       </div>
 
             <!-- Signatures Row: Incharge, Controller & Principal -->
-      <div class="mt-2 pt-1 border-t border-slate-300">
+      <div class="mt-4 pt-2 border-t border-slate-300">
         <div class="grid grid-cols-3 gap-12 text-center text-slate-700">
-          <div class="border-t-2 border-slate-400 pt-1">
-            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Sig. Class Incharge</span>
+          <div class="border-t-2 border-slate-400 pt-1.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Sig. Class Incharge</span>
           </div>
-          <div class="border-t-2 border-slate-400 pt-1">
-            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Controller of Examinations</span>
+          <div class="border-t-2 border-slate-400 pt-1.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Controller of Examinations</span>
           </div>
-          <div class="border-t-2 border-slate-400 pt-1">
-            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Principal</span>
+          <div class="border-t-2 border-slate-400 pt-1.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Principal</span>
           </div>
         </div>
       </div>
@@ -359,30 +359,30 @@
         : st.position === 3 ? `<span class="bg-amber-50 text-amber-800 font-bold px-1.5 py-0.2 rounded text-[9px] border border-amber-200">3rd</span>`
         : `<span class="text-slate-600 font-mono text-xs">${getOrdinal(st.position)}</span>`;
 
-      // Subject cells with visible partitioning and calibrated height for all 16 rows
+      // Subject cells with visible partitioning for black & white printing
       const cells = st.subjectResults.map(sub => {
         if (!sub.isPass) {
-          return `<td class="py-[3px] px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 text-xs" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
+          return `<td class="py-1.5 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
         }
-        return `<td class="py-[3px] px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${sub.mark}</td>`;
+        return `<td class="py-1.5 px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-sm">${sub.mark}</td>`;
       }).join('');
 
       const tr = document.createElement('tr');
-      tr.className = `${rowBg} border-b border-slate-400 text-xs transition hover:bg-slate-100/60`;
+      tr.className = `${rowBg} border-b border-slate-400 text-sm transition hover:bg-slate-100/60`;
       tr.innerHTML = `
-        <td class="py-[3px] px-1 text-center text-slate-600 font-mono text-[10px] border border-slate-400 font-bold">${st.sr}</td>
-        <td class="py-[3px] px-2 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-xs">${st.name}</td>
+        <td class="py-1.5 px-1 text-center text-slate-600 font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
+        <td class="py-1.5 px-2.5 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-sm">${st.name}</td>
         ${cells}
-        <td class="py-[3px] px-1.5 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-xs">
+        <td class="py-1.5 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-sm">
           ${st.validTotal}
         </td>
-        <td class="py-[3px] px-1 text-center font-mono font-black text-slate-800 border border-slate-400 text-xs">${st.percentage}%</td>
-        <td class="py-[3px] px-1 text-center border border-slate-400">
-          <span class="font-black px-1.5 py-0.2 rounded text-[9px] ${st.badgeClass}">${st.grade}</span>
+        <td class="py-1.5 px-1.5 text-center font-mono font-black text-slate-800 border border-slate-400 text-sm">${st.percentage}%</td>
+        <td class="py-1.5 px-1 text-center border border-slate-400">
+          <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="py-[3px] px-1 text-center border border-slate-400 font-black text-xs">${positionBadge}</td>
-        <td class="py-[3px] px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${st.attendance || '&mdash;'}</td>
-        <td class="py-[3px] px-2 text-slate-700 font-semibold whitespace-nowrap text-[10px] border border-slate-400">${st.remarks}</td>
+        <td class="py-1.5 px-1.5 text-center border border-slate-400 font-black text-xs">${positionBadge}</td>
+        <td class="py-1.5 px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${st.attendance || '&mdash;'}</td>
+        <td class="py-1.5 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs border border-slate-400">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
     });
