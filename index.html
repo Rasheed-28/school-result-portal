@@ -77,28 +77,41 @@
     </div>
 
     <div>
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h3 class="text-lg font-bold text-slate-900">Class Results Directory</h3>
-          <p class="text-xs text-slate-500">Select a class below to generate mark sheets or print landscape student cards</p>
+          <h3 class="text-lg font-bold text-slate-900">Class Results Directory (17 Classes)</h3>
+          <p class="text-xs text-slate-500">Arranged sequentially from 7th Boys down to Play Group &bull; Select a class to print mark sheets or result cards</p>
         </div>
-        <div class="text-xs text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-md shadow-sm">
-          Principal: <strong>Dr. Shaukat Aziz</strong>
+        
+        <!-- Wing Filter Tabs -->
+        <div class="inline-flex items-center p-1 bg-white border border-slate-200 rounded-lg shadow-sm space-x-1 text-xs">
+          <button onclick="filterClasses('all')" id="filter-all" class="wing-btn px-3 py-1.5 rounded-md font-bold transition bg-slate-900 text-white">All (17)</button>
+          <button onclick="filterClasses('middle')" id="filter-middle" class="wing-btn px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Middle Wing (6)</button>
+          <button onclick="filterClasses('primary')" id="filter-primary" class="wing-btn px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Primary Wing (8)</button>
+          <button onclick="filterClasses('pre-primary')" id="filter-pre-primary" class="wing-btn px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Pre-Primary (3)</button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+      <!-- Classes Grid: Ordered Sequentially from 7th Boys to Play Group -->
+      <div id="classes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- ==================== 1. 7TH BOYS (ACTIVE) ==================== -->
+        <div class="class-card bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
           <div>
             <div class="flex items-center justify-between">
               <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded border border-blue-300">
-                Boys Section
+                Boys Section &bull; Middle Wing
               </span>
               <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
             </div>
             
-            <h4 class="text-xl font-black text-slate-900 mt-2">7th Boys</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">7th Boys</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                Live Data Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Laiba Batool</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
 
             <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
               <div class="bg-slate-50 p-2 rounded">
@@ -107,7 +120,7 @@
               </div>
               <div class="bg-slate-50 p-2 rounded">
                 <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
-                <span class="font-bold text-slate-900 font-mono text-sm">84.7%</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">84.6%</span>
               </div>
               <div class="bg-slate-50 p-2 rounded">
                 <span class="block text-[10px] text-slate-400 font-semibold uppercase">Top Mark</span>
@@ -130,24 +143,29 @@
                 <span>Consolidated Mark Sheet</span>
               </a>
               <a href="classes/7th_boys/failure_sheet.html" class="flex items-center justify-center text-center bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold py-2 rounded-lg border border-rose-200 transition">
-                <span>Failure Sheet (2)</span>
+                <span>Failure Sheet (3)</span>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- 7th Girls Card -->
-        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <!-- ==================== 2. 7TH GIRLS (ACTIVE) ==================== -->
+        <div class="class-card bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
           <div>
             <div class="flex items-center justify-between">
               <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-0.5 rounded border border-pink-300">
-                Girls Section
+                Girls Section &bull; Middle Wing
               </span>
               <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
             </div>
             
-            <h4 class="text-xl font-black text-slate-900 mt-2">7th Girls</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">7th Girls</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                Live Data Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Amna Feroz</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
 
             <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
               <div class="bg-slate-50 p-2 rounded">
@@ -185,67 +203,69 @@
           </div>
         </div>
 
-                <!-- 5th Girls Card -->
-        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <!-- ==================== 3. 6TH BOYS (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
           <div>
             <div class="flex items-center justify-between">
-              <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-0.5 rounded border border-pink-300">
-                Girls Section
+              <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded border border-blue-300">
+                Boys Section &bull; Middle Wing
               </span>
               <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
             </div>
             
-            <h4 class="text-xl font-black text-slate-900 mt-2">5th Girls</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700">Sadaf Naureen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">6th Boys</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Muhammad Asif</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
 
             <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
               <div class="bg-slate-50 p-2 rounded">
-                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Students</span>
-                <span class="font-bold text-slate-900 font-mono text-sm">15</span>
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~22</span>
               </div>
               <div class="bg-slate-50 p-2 rounded">
-                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
-                <span class="font-bold text-slate-900 font-mono text-sm">93.4%</span>
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
               </div>
               <div class="bg-slate-50 p-2 rounded">
-                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Top Mark</span>
-                <span class="font-bold text-emerald-700 font-mono text-sm">290</span>
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Standard</span>
+                <span class="font-bold text-slate-700 text-xs mt-0.5 block">40% Pass</span>
               </div>
             </div>
 
-            <div class="mt-3 text-[11px] text-slate-600 bg-amber-50 border border-amber-200 rounded p-2">
-              <strong>Rules Applied:</strong> Failed marks (&lt;40%) excluded from totals. Incharge hidden on cards. 13 passed, 2 with compartments.
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Checklist Roster:</strong> Enrolled in examination printing checklist. Ready for mark sheet ingestion & automated card generation.
             </div>
           </div>
 
           <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
-            <a href="classes/5th-girls/cards.html" class="w-full flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-lg shadow transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-              <span>Print Student Cards (2 per page)</span>
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
             </a>
-            <div class="grid grid-cols-2 gap-2">
-              <a href="classes/5th-girls/marksheet.html" class="flex items-center justify-center text-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2 rounded-lg border border-slate-300 transition">
-                <span>Consolidated Mark Sheet</span>
-              </a>
-              <a href="classes/5th-girls/failure_sheet.html" class="flex items-center justify-center text-center bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold py-2 rounded-lg border border-rose-200 transition">
-                <span>Failure Sheet (2)</span>
-              </a>
-            </div>
           </div>
         </div>
 
-        <!-- 6th Girls Card -->
-        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <!-- ==================== 4. 6TH GIRLS (ACTIVE) ==================== -->
+        <div class="class-card bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
           <div>
             <div class="flex items-center justify-between">
               <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-0.5 rounded border border-pink-300">
-                Girls Section
+                Girls Section &bull; Middle Wing
               </span>
               <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
             </div>
             
-            <h4 class="text-xl font-black text-slate-900 mt-2">6th Girls</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700">Tayyaba Hina</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">6th Girls</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                Live Data Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Tayyaba Hina</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
 
             <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
               <div class="bg-slate-50 p-2 rounded">
@@ -283,23 +303,28 @@
           </div>
         </div>
 
-        <!-- 5th Boys Card -->
-        <div class="bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <!-- ==================== 5. 5TH BOYS (ACTIVE) ==================== -->
+        <div class="class-card bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
           <div>
             <div class="flex items-center justify-between">
               <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded border border-blue-300">
-                Boys Section
+                Boys Section &bull; Middle Wing
               </span>
               <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
             </div>
             
-            <h4 class="text-xl font-black text-slate-900 mt-2">5th Boys</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700">Farzana Parveen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">5th Boys</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                Live Data Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Farzana Parveen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
 
             <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
               <div class="bg-slate-50 p-2 rounded">
                 <span class="block text-[10px] text-slate-400 font-semibold uppercase">Students</span>
-                <span class="font-bold text-slate-900 font-mono text-sm">33</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">32</span>
               </div>
               <div class="bg-slate-50 p-2 rounded">
                 <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
@@ -312,7 +337,7 @@
             </div>
 
             <div class="mt-3 text-[11px] text-slate-600 bg-amber-50 border border-amber-200 rounded p-2">
-              <strong>Rules Applied:</strong> Failed marks (&lt;40%) excluded from totals. Incharge hidden on cards. 25 passed, 7 with compartments, 1 SLC.
+              <strong>Rules Applied:</strong> Failed marks (&lt;40%) excluded from totals. Incharge hidden on cards. 25 passed, 7 with compartments.
             </div>
           </div>
 
@@ -332,19 +357,570 @@
           </div>
         </div>
 
-<div class="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-slate-50/50">
-          <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-400 text-xl font-bold mb-3">
-            +
+        <!-- ==================== 6. 5TH GIRLS (ACTIVE) ==================== -->
+        <div class="class-card bg-white border-2 border-slate-800 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="middle">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-0.5 rounded border border-pink-300">
+                Girls Section &bull; Middle Wing
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">5th Girls</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                Live Data Active
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Sadaf Naureen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Students</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">15</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Average</span>
+                <span class="font-bold text-slate-900 font-mono text-sm">93.4%</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Top Mark</span>
+                <span class="font-bold text-emerald-700 font-mono text-sm">290</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-amber-50 border border-amber-200 rounded p-2">
+              <strong>Rules Applied:</strong> Failed marks (&lt;40%) excluded from totals. Incharge hidden on cards. 13 passed, 2 with compartments.
+            </div>
           </div>
-          <h4 class="text-sm font-bold text-slate-700">Next Class Ready to Import</h4>
-          <p class="text-xs text-slate-400 mt-1 max-w-xs">
-            Provide the next mark sheet image or data and it will automatically generate in this format.
-          </p>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="classes/5th-girls/cards.html" class="w-full flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-lg shadow transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+              <span>Print Student Cards (2 per page)</span>
+            </a>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="classes/5th-girls/marksheet.html" class="flex items-center justify-center text-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2 rounded-lg border border-slate-300 transition">
+                <span>Consolidated Mark Sheet</span>
+              </a>
+              <a href="classes/5th-girls/failure_sheet.html" class="flex items-center justify-center text-center bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold py-2 rounded-lg border border-rose-200 transition">
+                <span>Failure Sheet (2)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 7. PREP 4 A (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded border border-amber-300">
+                Section A &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-amber-700 font-bold">70% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 4 A</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Bushra Rehman</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~28</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-amber-800 text-xs mt-0.5 block">70% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Section A Standard:</strong> Minimum 70% passing threshold applies. Automatic promotion & result card formatting ready.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 8. PREP 4 B (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-indigo-100 text-indigo-900 text-xs font-bold px-2.5 py-0.5 rounded border border-indigo-300">
+                Section B &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 4 B</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Rubina Kausar</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~27</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-slate-700 text-xs mt-0.5 block">40% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Checklist Roster:</strong> Enrolled in examination printing checklist. Ready for mark sheet ingestion & automated card generation.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 9. PREP 3 A (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded border border-amber-300">
+                Section A &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-amber-700 font-bold">70% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 3 A</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Zainab Bibi</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~26</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-amber-800 text-xs mt-0.5 block">70% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Section A Standard:</strong> Minimum 70% passing threshold applies. Automatic promotion & result card formatting ready.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 10. PREP 3 B (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-indigo-100 text-indigo-900 text-xs font-bold px-2.5 py-0.5 rounded border border-indigo-300">
+                Section B &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 3 B</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Khadija Bibi</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~25</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-slate-700 text-xs mt-0.5 block">40% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Checklist Roster:</strong> Enrolled in examination printing checklist. Ready for mark sheet ingestion & automated card generation.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 11. PREP 2 A (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded border border-amber-300">
+                Section A &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-amber-700 font-bold">70% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 2 A</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Uzma Shaheen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~25</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-amber-800 text-xs mt-0.5 block">70% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Section A Standard:</strong> Minimum 70% passing threshold applies. Automatic promotion & result card formatting ready.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 12. PREP 2 B (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-indigo-100 text-indigo-900 text-xs font-bold px-2.5 py-0.5 rounded border border-indigo-300">
+                Section B &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 2 B</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Rukhsana Kausar</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~24</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-slate-700 text-xs mt-0.5 block">40% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Checklist Roster:</strong> Enrolled in examination printing checklist. Ready for mark sheet ingestion & automated card generation.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 13. PREP 1 A (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded border border-amber-300">
+                Section A &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-amber-700 font-bold">70% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 1 A</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Nadia Parveen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~24</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-amber-800 text-xs mt-0.5 block">70% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Section A Standard:</strong> Minimum 70% passing threshold applies. Automatic promotion & result card formatting ready.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 14. PREP 1 B (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-indigo-100 text-indigo-900 text-xs font-bold px-2.5 py-0.5 rounded border border-indigo-300">
+                Section B &bull; Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-slate-500">40% Pass Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Prep 1 B</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Asia Bano</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~23</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Criterion</span>
+                <span class="font-bold text-slate-700 text-xs mt-0.5 block">40% Min</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Checklist Roster:</strong> Enrolled in examination printing checklist. Ready for mark sheet ingestion & automated card generation.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 15. KG 1 A (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="pre-primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-emerald-900 text-xs font-bold px-2.5 py-0.5 rounded border border-emerald-300">
+                Kindergarten &bull; Pre-Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-emerald-700 font-bold">Foundational Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">KG 1 A</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Tahira Kausar</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~22</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Assessment</span>
+                <span class="font-bold text-emerald-800 text-xs mt-0.5 block">KG Rubric</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Pre-Primary Assessment:</strong> Early learning developmental and oral evaluation structure.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 16. KG 1 B (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="pre-primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-emerald-900 text-xs font-bold px-2.5 py-0.5 rounded border border-emerald-300">
+                Kindergarten &bull; Pre-Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-emerald-700 font-bold">Foundational Standard</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">KG 1 B</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Samina Yasmeen</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~21</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Assessment</span>
+                <span class="font-bold text-emerald-800 text-xs mt-0.5 block">KG Rubric</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Pre-Primary Assessment:</strong> Early learning developmental and oral evaluation structure.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== 17. PLAY GROUP (UPCOMING) ==================== -->
+        <div class="class-card bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-wing="pre-primary">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-purple-100 text-purple-900 text-xs font-bold px-2.5 py-0.5 rounded border border-purple-300">
+                Pre-School &bull; Pre-Primary Wing
+              </span>
+              <span class="text-xs font-semibold text-purple-700 font-bold">Early Years Assessment</span>
+            </div>
+            
+            <div class="flex items-baseline justify-between mt-2">
+              <h4 class="text-xl font-black text-slate-900">Play Group</h4>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                Awaiting Marks
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Incharge: <strong class="text-slate-700 font-semibold">Sadia Bibi</strong> &bull; Principal: <strong class="text-slate-700">Dr. Shaukat Aziz</strong></p>
+
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center text-xs">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Expected</span>
+                <span class="font-bold text-slate-800 font-mono text-sm">~20</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Audit Status</span>
+                <span class="font-bold text-amber-700 text-xs mt-0.5 block">Registered</span>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Assessment</span>
+                <span class="font-bold text-purple-800 text-xs mt-0.5 block">Play Rubric</span>
+              </div>
+            </div>
+
+            <div class="mt-3 text-[11px] text-slate-600 bg-slate-50 border border-slate-200 rounded p-2">
+              <strong>Early Childhood Evaluation:</strong> Motor skills, visual recognition, and foundational oral activities.
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-2 pt-3 border-t border-slate-100">
+            <a href="checklist.html" class="w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold py-2.5 rounded-lg border border-slate-300 transition">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              <span>Track in Audit Checklist</span>
+            </a>
+          </div>
         </div>
 
       </div>
     </div>
 
+    <!-- Academic Guidelines and Grading Policy -->
     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
       <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">School Academic & Grading Guidelines</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -368,5 +944,33 @@
     </div>
 
   </main>
+
+  <!-- Interactive Wing Filtering Logic -->
+  <script>
+    function filterClasses(wing) {
+      // Update Tab Styles
+      const buttons = document.querySelectorAll('.wing-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-slate-900', 'text-white');
+        btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+      });
+
+      const activeBtn = document.getElementById('filter-' + wing);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-slate-900', 'text-white');
+        activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+      }
+
+      // Filter Cards
+      const cards = document.querySelectorAll('.class-card');
+      cards.forEach(card => {
+        if (wing === 'all' || card.dataset.wing === wing) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

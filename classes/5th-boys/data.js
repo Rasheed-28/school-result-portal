@@ -36,7 +36,7 @@ const CLASS_DATA = {
   },
   // Student Name as Object Key with Subject Marks as Key-Value Pairs
   students: {
-    "Muhammad Shehrar": {
+    "Muhammad Shehryar": {
       rollNo: 1,
       marks: {
         "English": 49,
