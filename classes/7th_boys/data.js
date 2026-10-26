@@ -34,7 +34,7 @@ const CLASS_DATA = {
     "Model Making": 5,
     "Al-Quran (Oral)": 10,
     "Oral Assessment": 10,
-    "History & Geo": 50
+    "Geography": 50
   },
   // Student Name as Object Key with Subject Marks as Key-Value Pairs
   students: {
@@ -52,7 +52,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 8,
         "Oral Assessment": 9,
-        "History & Geo": 40
+        "Geography": 40
       }
     },
     "Muhammad Issam": {
@@ -69,7 +69,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 43
+        "Geography": 43
       }
     },
     "Abdul Hadi": {
@@ -86,7 +86,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 8,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Hashim Ali": {
@@ -103,7 +103,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 6,
         "Oral Assessment": 8,
-        "History & Geo": 36
+        "Geography": 36
       }
     },
     "Zubair Ali": {
@@ -120,7 +120,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 40
+        "Geography": 40
       }
     },
     "Muhammad Afan": {
@@ -137,7 +137,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 10,
-        "History & Geo": 43
+        "Geography": 43
       }
     },
     "Dayan Umar": {
@@ -154,7 +154,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 9,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Abdul Rehman": {
@@ -171,7 +171,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 10,
-        "History & Geo": 39
+        "Geography": 39
       }
     },
     "Muhammad Alyan": {
@@ -188,7 +188,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 8,
         "Oral Assessment": 9,
-        "History & Geo": 49
+        "Geography": 49
       }
     },
     "Muhammad Sharjeel": {
@@ -205,7 +205,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 9,
-        "History & Geo": 48
+        "Geography": 48
       }
     },
     "Umer Farooq": {
@@ -222,7 +222,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 8,
         "Oral Assessment": 9,
-        "History & Geo": 38
+        "Geography": 38
       }
     },
     "Muaz Ali": {
@@ -239,7 +239,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 9,
-        "History & Geo": 41
+        "Geography": 41
       }
     },
     "Zain Ali": {
@@ -256,7 +256,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 8,
-        "History & Geo": 40
+        "Geography": 40
       }
     },
     "Ali Haider": {
@@ -273,7 +273,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 3,
         "Oral Assessment": 8,
-        "History & Geo": 15
+        "Geography": 15
       }
     },
     "Ikhlas Haider": {
@@ -290,7 +290,7 @@ const CLASS_DATA = {
         "Model Making": 3,
         "Al-Quran (Oral)": 8,
         "Oral Assessment": 9,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Muhammad Aleem Ahmed": {
@@ -307,7 +307,7 @@ const CLASS_DATA = {
         "Model Making": 2,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 10,
-        "History & Geo": 49
+        "Geography": 49
       }
     }
   }

@@ -30,6 +30,14 @@
       size: A4 landscape;
       margin: 0;
     }
+    /* Cell Partitioning for Tables (Screen & Print) */
+    table {
+      border-collapse: collapse !important;
+    }
+    table th, table td {
+      border: 1px solid #64748b;
+    }
+
     @media print {
       html, body {
         width: 297mm !important;
@@ -39,7 +47,6 @@
         background: #ffffff !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        overflow: hidden !important;
       }
       .no-print {
         display: none !important;
@@ -53,27 +60,49 @@
       }
       .marksheet-page {
         width: 297mm !important;
-        height: 210mm !important;
+        min-height: 200mm !important;
         max-height: 210mm !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
         break-after: avoid !important;
         break-inside: avoid !important;
         margin: 0 auto !important;
-        padding: 8mm 10mm !important;
+        padding: 4mm 8mm !important;
         box-sizing: border-box !important;
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        overflow: hidden !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
       }
+      /* High-contrast cell partitioning for black & white printing */
+      table {
+        border: 1.5px solid #0f172a !important;
+        border-collapse: collapse !important;
+      }
+      table th, table td {
+        border: 1px solid #1e293b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      thead th {
+        border: 1px solid #0f172a !important;
+        background-color: #0f172a !important;
+        color: #ffffff !important;
+      }
+      thead tr:nth-child(2) td {
+        border: 1px solid #1e293b !important;
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+      tbody td {
+        border: 1px solid #1e293b !important;
+      }
     }
     @media screen {
       .marksheet-container {
-        padding: 24px 0;
+        padding: 16px 0;
         max-width: 1280px;
         margin: 0 auto;
         display: flex;
@@ -82,11 +111,10 @@
       }
       .marksheet-page {
         width: 297mm;
-        height: 210mm;
-        max-height: 210mm;
-        padding: 8mm 10mm;
+        min-height: 210mm;
+        padding: 4mm 8mm;
         box-sizing: border-box;
-        margin: 0 auto 24px auto;
+        margin: 0 auto 20px auto;
         background: #ffffff;
       }
     }
@@ -137,24 +165,24 @@
     <div class="marksheet-page bg-white p-3.5 rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between">
       
             <!-- Header with High-Contrast Class & Incharge Prominence -->
-      <div class="border-b-2 border-slate-900 pb-2 mb-2">
+      <div class="border-b-2 border-slate-900 pb-1 mb-1">
         <div class="flex items-center justify-between">
           <!-- Left: School Crest & Title -->
-          <div class="flex items-center space-x-3.5">
-            <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="Logo" class="h-16 w-16 object-contain logo-sharp">
+          <div class="flex items-center space-x-2.5">
+            <img src="logo.jpg" onerror="this.src=SCHOOL_LOGO_BASE64; this.onerror=null;" alt="Logo" class="h-11 w-11 object-contain logo-sharp">
             <div>
-              <h1 class="text-lg font-black tracking-tight text-slate-900 uppercase leading-none">
+              <h1 class="text-base font-black tracking-tight text-slate-900 uppercase leading-none">
                 Al Rehman Public Secondary School Sadwal
               </h1>
-              <div class="flex items-center space-x-2 text-xs text-slate-600 mt-1 font-medium">
+              <div class="flex items-center space-x-2 text-[9.5px] text-slate-600 mt-0.5 font-medium">
                 <span class="font-bold text-slate-800">Sadwal (Chakwal)</span>
                 <span>&bull;</span>
                 <span class="italic font-serif">"Enter to Learn - Leave to Serve"</span>
                 <span>&bull;</span>
                 <span class="font-bold text-slate-800">Academic Session 2026-27</span>
               </div>
-              <div class="mt-1">
-                <span class="inline-block bg-slate-900 text-amber-300 font-extrabold text-[11px] px-2.5 py-0.5 rounded shadow-sm tracking-wider uppercase">
+              <div class="mt-0.5">
+                <span class="inline-block bg-slate-900 text-amber-300 font-extrabold text-[9.5px] px-2 py-0.2 rounded shadow-sm tracking-wider uppercase">
                   Consolidated Mark Sheet &bull; 2nd Term Examination
                 </span>
               </div>
@@ -162,26 +190,26 @@
           </div>
 
           <!-- Right: Prominent Badges for Class, Incharge, and Meta -->
-          <div class="flex items-stretch space-x-2 text-right">
+          <div class="flex items-stretch space-x-1.5 text-right">
             <!-- Class Badge Card -->
-            <div class="bg-slate-900 text-white px-4 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-center min-w-[130px] border border-slate-800">
-              <span class="text-[9.5px] uppercase font-bold tracking-wider text-slate-300">Class & Section</span>
-              <span class="text-base font-black text-amber-300 tracking-wide uppercase leading-tight">7th Boys</span>
+            <div class="bg-slate-900 text-white px-2.5 py-0.5 rounded shadow-sm flex flex-col justify-center items-center min-w-[95px] border border-slate-800">
+              <span class="text-[8px] uppercase font-bold tracking-wider text-slate-300">Class & Section</span>
+              <span class="text-xs font-black text-amber-300 tracking-wide uppercase leading-tight">7th Boys</span>
             </div>
             <!-- Class Incharge Card -->
-            <div class="bg-amber-50 border-2 border-amber-300 text-amber-950 px-4 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-center min-w-[155px]">
-              <span class="text-[9.5px] uppercase font-bold tracking-wider text-amber-800">Class Incharge</span>
-              <span class="text-sm font-black text-slate-900 leading-tight">Laiba Batool</span>
+            <div class="bg-amber-50 border-2 border-amber-300 text-amber-950 px-2.5 py-0.5 rounded shadow-sm flex flex-col justify-center items-center min-w-[110px]">
+              <span class="text-[8px] uppercase font-bold tracking-wider text-amber-800">Class Incharge</span>
+              <span class="text-[11px] font-black text-slate-900 leading-tight">Laiba Batool</span>
             </div>
             <!-- Exam Meta Card -->
-            <div class="bg-slate-50 border border-slate-300 px-3 py-1.5 rounded-lg shadow-sm flex flex-col justify-center items-start text-xs font-semibold text-slate-700">
-              <div class="flex items-center space-x-1.5">
-                <span class="text-slate-500 uppercase text-[9px] font-bold">Max Marks:</span>
-                <strong class="text-slate-900 font-mono text-sm">435</strong>
+            <div class="bg-slate-50 border border-slate-300 px-2 py-0.5 rounded shadow-sm flex flex-col justify-center items-start text-xs font-semibold text-slate-700">
+              <div class="flex items-center space-x-1">
+                <span class="text-slate-500 uppercase text-[8px] font-bold">Max Marks:</span>
+                <strong class="text-slate-900 font-mono text-xs">435</strong>
               </div>
-              <div class="flex items-center space-x-1.5 mt-0.5">
-                <span class="text-slate-500 uppercase text-[9px] font-bold">Passing:</span>
-                <strong class="text-rose-700 text-xs font-bold">40% Minimum</strong>
+              <div class="flex items-center space-x-1 mt-0.2">
+                <span class="text-slate-500 uppercase text-[8px] font-bold">Passing:</span>
+                <strong class="text-rose-700 text-[9.5px] font-bold">40% Minimum</strong>
               </div>
             </div>
           </div>
@@ -189,72 +217,72 @@
       </div>
 
             <!-- Quick KPI Stats Bar -->
-      <div class="grid grid-cols-5 gap-2 my-2 text-center text-xs">
-        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
-          <span class="block text-[10px] uppercase font-bold text-slate-500">Total Enrolled</span>
-          <span class="font-black text-slate-900 font-mono text-base" id="total-enrolled">16 Students</span>
+      <div class="grid grid-cols-5 gap-1.5 my-1 text-center text-xs">
+        <div class="bg-slate-50 border border-slate-200 rounded p-1">
+          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Total Enrolled</span>
+          <span class="font-black text-slate-900 font-mono text-xs" id="total-enrolled">16 Students</span>
         </div>
-        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
-          <span class="block text-[10px] uppercase font-bold text-slate-500">Passing Standard</span>
-          <span class="font-bold text-slate-900 text-sm">40% (Boys Section)</span>
+        <div class="bg-slate-50 border border-slate-200 rounded p-1">
+          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Passing Standard</span>
+          <span class="font-bold text-slate-900 text-[10.5px]">40% (Boys Section)</span>
         </div>
-        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
-          <span class="block text-[10px] uppercase font-bold text-slate-500">Class Average</span>
-          <span class="font-black text-slate-900 font-mono text-base" id="class-avg">&mdash;</span>
+        <div class="bg-slate-50 border border-slate-200 rounded p-1">
+          <span class="block text-[8.5px] uppercase font-bold text-slate-500">Class Average</span>
+          <span class="font-black text-slate-900 font-mono text-xs" id="class-avg">&mdash;</span>
         </div>
-        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
-          <span class="block text-[10px] uppercase font-bold text-emerald-700">1st Position Holder</span>
-          <span class="font-black text-emerald-900 text-sm truncate block" id="first-pos">&mdash;</span>
+        <div class="bg-emerald-50 border border-emerald-200 rounded p-1">
+          <span class="block text-[8.5px] uppercase font-bold text-emerald-700">1st Position Holder</span>
+          <span class="font-black text-emerald-900 text-[10.5px] truncate block" id="first-pos">&mdash;</span>
         </div>
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-2">
-          <span class="block text-[10px] uppercase font-bold text-blue-700">Policy Standard</span>
-          <span class="font-bold text-blue-900 text-xs">Failed Marks Excluded</span>
+        <div class="bg-blue-50 border border-blue-200 rounded p-1">
+          <span class="block text-[8.5px] uppercase font-bold text-blue-700">Policy Standard</span>
+          <span class="font-bold text-blue-900 text-[10px]">Failed Marks Excluded</span>
         </div>
       </div>
 
-      <!-- Consolidated Table with LARGER FONT (text-xs / 12px) -->
-      <div class="flex-1 overflow-hidden">
+      <!-- Consolidated Table: All 16 students visible with crisp single-line layout -->
+      <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-xs">
           <thead>
-            <tr class="bg-slate-900 text-white font-black uppercase text-xs tracking-wider text-center">
-              <th class="py-1.5 px-1 border-r border-slate-700 w-7">Sr</th>
-              <th class="py-1.5 px-2 border-r border-slate-700 text-left w-36">Student Name</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Eng</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Urdu</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Math</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Sci</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Comp</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Al-Q</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Isl</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Draw</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Model</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Al-Q(O)</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Oral</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">His</th>
-              <th class="py-1.5 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold">Total</th>
-              <th class="py-1.5 px-1.5 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold">%age</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">Grade</th>
-              <th class="py-1.5 px-1.5 border-r border-slate-700">Pos</th>
-              <th class="py-1.5 px-1 border-r border-slate-700 w-12">Att</th>
-              <th class="py-1.5 px-2 text-left">Teacher Remarks</th>
+            <tr class="bg-slate-900 text-white font-extrabold uppercase text-[10px] tracking-tight whitespace-nowrap text-center">
+              <th class="py-1 px-1 border-r border-slate-700 w-7 whitespace-nowrap">Sr</th>
+              <th class="py-1 px-2 border-r border-slate-700 text-left whitespace-nowrap">Student Name</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Eng</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Urdu</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Math</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Sci</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Comp</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Al-Q</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Isl</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Draw</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Model</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Al-Q(O)</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Oral</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Geo</th>
+              <th class="py-1 px-1.5 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold whitespace-nowrap">Total</th>
+              <th class="py-1 px-1 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold whitespace-nowrap">%age</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Grade</th>
+              <th class="py-1 px-1 border-r border-slate-700 whitespace-nowrap">Pos</th>
+              <th class="py-1 px-1 border-r border-slate-700 w-10 whitespace-nowrap">Att</th>
+              <th class="py-1 px-2 text-left whitespace-nowrap">Teacher Remarks</th>
             </tr>
-            <tr class="bg-slate-200 text-slate-800 font-bold text-xs text-center border-b border-slate-400">
-              <td colspan="2" class="py-0.5 px-2 text-left font-bold uppercase">Maximum Marks &rarr;</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-1 font-mono">10</td>
-              <td class="py-1 px-1 font-mono">5</td>
-              <td class="py-1 px-1 font-mono">10</td>
-              <td class="py-1 px-1 font-mono">10</td>
-              <td class="py-1 px-1 font-mono">50</td>
-              <td class="py-1 px-2 font-mono font-bold bg-slate-300 text-slate-900">435</td>
-              <td class="py-1 px-1.5 font-mono">100%</td>
-              <td colspan="4" class="py-0.5 px-1 text-slate-500">Pass Mark: 40%</td>
+            <tr class="bg-slate-200 text-slate-900 font-bold text-sm text-center border-b-2 border-slate-500 whitespace-nowrap">
+              <td colspan="2" class="py-0.5 px-2 text-left font-black uppercase whitespace-nowrap text-[10px] text-slate-800">Maximum Marks &rarr;</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">5</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">10</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">50</td>
+              <td class="py-0.5 px-1.5 font-mono font-black bg-slate-300 text-slate-900 text-sm">435</td>
+              <td class="py-0.5 px-1 font-mono font-bold text-slate-900 text-sm">100%</td>
+              <td colspan="4" class="py-0.5 px-1 text-slate-600 font-semibold whitespace-nowrap text-[9.5px]">Pass Mark: 40%</td>
             </tr>
           </thead>
           <tbody id="table-body">
@@ -264,9 +292,9 @@
       </div>
 
             <!-- Grading Scale Legend & Rule Footnote -->
-      <div class="mt-2 pt-1 border-t border-slate-300">
-        <div class="flex items-center justify-between text-[10px] bg-slate-50 p-2 rounded-lg border border-slate-200 text-slate-700">
-          <div class="space-x-1.5 font-medium">
+      <div class="mt-1 pt-0.5 border-t border-slate-300">
+        <div class="flex items-center justify-between text-[9px] bg-slate-50 py-1 px-2 rounded border border-slate-200 text-slate-700">
+          <div class="space-x-1 font-medium">
             <span class="font-black text-slate-900 uppercase">Grading Scale:</span>
             <span>&le;100%: <strong class="text-emerald-700 font-bold">A+</strong> (Excellent)</span> &bull;
             <span>&le;90%: <strong class="text-blue-700 font-bold">A</strong> (Very Good)</span> &bull;
@@ -283,19 +311,16 @@
       </div>
 
             <!-- Signatures Row: Incharge, Controller & Principal -->
-      <div class="mt-2.5 pt-1.5 border-t border-slate-300">
-        <div class="grid grid-cols-3 gap-8 text-center pt-1 text-slate-700">
+      <div class="mt-2 pt-1 border-t border-slate-300">
+        <div class="grid grid-cols-3 gap-12 text-center text-slate-700">
           <div class="border-t-2 border-slate-400 pt-1">
-            <span class="font-black text-sm block text-slate-900">Laiba Batool</span>
-            <span class="text-[9.5px] text-slate-500 uppercase font-bold tracking-wider">Class Incharge (7th Boys)</span>
+            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Sig. Class Incharge</span>
           </div>
           <div class="border-t-2 border-slate-400 pt-1">
-            <span class="font-bold text-sm block text-slate-300">&nbsp;</span>
-            <span class="text-[9.5px] text-slate-500 uppercase font-bold tracking-wider">Controller of Examinations</span>
+            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Controller of Examinations</span>
           </div>
           <div class="border-t-2 border-slate-400 pt-1">
-            <span class="font-black text-sm block text-slate-900">Dr. Shaukat Aziz</span>
-            <span class="text-[9.5px] text-slate-500 uppercase font-bold tracking-wider">Principal</span>
+            <span class="text-[10.5px] font-bold uppercase tracking-wider text-slate-800 block">Principal</span>
           </div>
         </div>
       </div>
@@ -334,43 +359,49 @@
         : st.position === 3 ? `<span class="bg-amber-50 text-amber-800 font-bold px-1.5 py-0.2 rounded text-[9px] border border-amber-200">3rd</span>`
         : `<span class="text-slate-600 font-mono text-xs">${getOrdinal(st.position)}</span>`;
 
-      // Subject cells with LARGER font (text-xs)
+      // Subject cells with visible partitioning and calibrated height for all 16 rows
       const cells = st.subjectResults.map(sub => {
         if (!sub.isPass) {
-          return `<td class="py-2 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
+          return `<td class="py-[3px] px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 text-xs" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
         }
-        return `<td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border-x border-slate-200 text-sm">${sub.mark}</td>`;
+        return `<td class="py-[3px] px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${sub.mark}</td>`;
       }).join('');
 
       const tr = document.createElement('tr');
-      tr.className = `${rowBg} border-b border-slate-200 text-sm transition hover:bg-slate-100/60`;
+      tr.className = `${rowBg} border-b border-slate-400 text-xs transition hover:bg-slate-100/60`;
       tr.innerHTML = `
-        <td class="py-2 px-1 text-center text-slate-500 font-mono text-xs border-r border-slate-200 font-bold">${st.sr}</td>
-        <td class="py-2 px-2.5 text-slate-900 font-bold border-r border-slate-200 whitespace-nowrap text-sm">${st.name}</td>
+        <td class="py-[3px] px-1 text-center text-slate-600 font-mono text-[10px] border border-slate-400 font-bold">${st.sr}</td>
+        <td class="py-[3px] px-2 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-xs">${st.name}</td>
         ${cells}
-        <td class="py-2 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border-x border-slate-300 text-sm">
+        <td class="py-[3px] px-1.5 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-xs">
           ${st.validTotal}
         </td>
-        <td class="py-2 px-1.5 text-center font-mono font-black text-slate-800 border-r border-slate-200 text-sm">${st.percentage}%</td>
-        <td class="py-2 px-1 text-center border-r border-slate-200">
-          <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
+        <td class="py-[3px] px-1 text-center font-mono font-black text-slate-800 border border-slate-400 text-xs">${st.percentage}%</td>
+        <td class="py-[3px] px-1 text-center border border-slate-400">
+          <span class="font-black px-1.5 py-0.2 rounded text-[9px] ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="py-2 px-1.5 text-center border-r border-slate-200 font-black text-xs">${positionBadge}</td>
-        <td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
-        <td class="py-2 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs">${st.remarks}</td>
+        <td class="py-[3px] px-1 text-center border border-slate-400 font-black text-xs">${positionBadge}</td>
+        <td class="py-[3px] px-1 text-center font-mono font-bold text-slate-800 border border-slate-400 text-xs">${st.attendance || '&mdash;'}</td>
+        <td class="py-[3px] px-2 text-slate-700 font-semibold whitespace-nowrap text-[10px] border border-slate-400">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderTable();
-    window.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-        e.preventDefault();
-        window.print();
-      }
-    });
+  // Multi-tier reliable rendering execution
+  renderTable();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderTable);
+  }
+  window.addEventListener('load', renderTable);
+  window.addEventListener('beforeprint', renderTable);
+
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      window.print();
+    }
   });
   </script>
 </body>

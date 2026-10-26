@@ -79,6 +79,29 @@
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
+      /* High-contrast cell partitioning for black & white printing */
+      table {
+        border: 1.5px solid #0f172a !important;
+        border-collapse: collapse !important;
+      }
+      table th, table td {
+        border: 1px solid #1e293b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      thead th {
+        border: 1px solid #0f172a !important;
+      }
+      tfoot td {
+        border-top: 1.5px solid #0f172a !important;
+        border: 1px solid #1e293b !important;
+      }
+    }
+    table {
+      border-collapse: collapse !important;
+    }
+    table th, table td {
+      border: 1px solid #64748b;
     }
 
     @media screen {
@@ -226,12 +249,12 @@
       const displayTitle = (sub.title || '').replace(/\(Nazra\)/gi, '').replace(/Nazra/gi, 'Al-Quran').replace(/\s+/g, ' ').trim();
 
       return `
-        <tr class="${rowBg} border-b border-slate-200">
-          <td class="py-1 px-1.5 text-center text-slate-400 font-mono text-[10px] font-bold">${i + 1}</td>
-          <td class="py-1 px-2.5 text-slate-900 font-bold text-xs">${displayTitle}</td>
-          <td class="py-1 px-2 text-center text-slate-600 font-mono text-xs font-semibold">${sub.maxMarks}</td>
-          <td class="py-1 px-2 text-center">${markDisplay}</td>
-          <td class="py-1 px-2 text-center">${statusBadge}</td>
+        <tr class="${rowBg} border-b border-slate-300">
+          <td class="py-1 px-1.5 text-center text-slate-500 font-mono text-[10px] font-bold border border-slate-300">${i + 1}</td>
+          <td class="py-1 px-2.5 text-slate-900 font-bold text-xs border border-slate-300">${displayTitle}</td>
+          <td class="py-1 px-2 text-center text-slate-900 font-mono text-xs font-black border border-slate-300">${sub.maxMarks}</td>
+          <td class="py-1 px-2 text-center border border-slate-300">${markDisplay}</td>
+          <td class="py-1 px-2 text-center border border-slate-300">${statusBadge}</td>
         </tr>
       `;
     }).join('');
@@ -298,7 +321,7 @@
             <tfoot>
               <tr class="bg-slate-100 font-bold text-xs border-t-2 border-slate-700">
                 <td colspan="2" class="py-1.2 px-2.5 text-slate-900 font-black uppercase text-xs">Total Marks Summary</td>
-                <td class="py-1.2 px-2 text-center font-mono text-slate-700 text-xs font-bold">${classData.meta.maxMarks || (classData.subjects ? classData.subjects.reduce((a,b)=>a+b.maxMarks,0) : 435)}</td>
+                <td class="py-1.2 px-2 text-center font-mono text-slate-900 text-sm font-black border border-slate-300">${classData.meta.maxMarks || (classData.subjects ? classData.subjects.reduce((a,b)=>a+b.maxMarks,0) : 435)}</td>
                 <td class="py-1.2 px-2 text-center font-mono text-sm text-slate-900 font-black bg-slate-200/90">${st.validTotal}</td>
                 <td class="py-1.2 px-2 text-center">
                   ${st.hasFailedSubject 
@@ -418,14 +441,20 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderAllCards();
-    window.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-        e.preventDefault();
-        window.print();
-      }
-    });
+  // Multi-tier reliable rendering execution
+  renderAllCards();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAllCards);
+  }
+  window.addEventListener('load', renderAllCards);
+  window.addEventListener('beforeprint', renderAllCards);
+
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      window.print();
+    }
   });
   </script>
 </body>
