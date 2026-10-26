@@ -30,18 +30,30 @@
       size: A4 landscape;
       margin: 0;
     }
-    /* Cell Partitioning for Tables (Screen & Print) */
+    /* Strictly Equal Cell Height across all rows and tables */
     table {
       border-collapse: collapse !important;
+      width: 100% !important;
     }
     table th, table td {
       border: 1px solid #64748b;
+      height: 30px !important;
+      max-height: 30px !important;
+      min-height: 30px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      vertical-align: middle !important;
+      box-sizing: border-box !important;
+    }
+    table tbody tr {
+      height: 30px !important;
     }
 
     @media print {
       html, body {
         width: 297mm !important;
-        height: 210mm !important;
+        height: auto !important;
+        min-height: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
@@ -59,7 +71,8 @@
       }
       .marksheet-page {
         width: 297mm !important;
-        min-height: 200mm !important;
+        height: 210mm !important;
+        min-height: 210mm !important;
         max-height: 210mm !important;
         page-break-after: always !important;
         break-after: page !important;
@@ -86,6 +99,13 @@
       }
       table th, table td {
         border: 1px solid #1e293b !important;
+        height: 30px !important;
+        max-height: 30px !important;
+        min-height: 30px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        vertical-align: middle !important;
+        box-sizing: border-box !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -166,7 +186,7 @@
 
   <div class="marksheet-container">
 
-    <!-- ==================== PAGE 1 (Roll #01 to #26) ==================== -->
+    <!-- ==================== PAGE 1 (Roll #01 to #18) ==================== -->
     <div class="marksheet-page bg-white rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between" id="page-1">
       
       <!-- Page 1 Header with High-Contrast Class & Incharge Badges -->
@@ -222,7 +242,7 @@
       </div>
 
       <!-- Quick KPI Stats Bar -->
-      <div class="grid grid-cols-5 gap-2 my-1.5 text-center text-xs">
+      <div class="grid grid-cols-5 gap-2 my-1 text-center text-xs">
         <div class="bg-slate-50 border border-slate-200 rounded-lg p-1.5">
           <span class="block text-[10px] uppercase font-bold text-slate-500">Total Enrolled</span>
           <span class="font-black text-slate-900 font-mono text-sm" id="total-enrolled">33 Students (1 SLC)</span>
@@ -245,49 +265,49 @@
         </div>
       </div>
 
-      <!-- Page 1 Consolidated Table (Students 1 to 26) -->
+      <!-- Page 1 Consolidated Table (Students 1 to 18) -->
       <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-sm">
           <thead>
             <tr class="bg-slate-900 text-white font-black uppercase text-xs tracking-wider text-center">
-              <th class="py-2 px-1 border-r border-slate-700 w-8">SR</th>
-              <th class="py-2 px-3 border-r border-slate-700 text-left w-48 whitespace-nowrap">STUDENT NAME</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ENG</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">URDU</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">MATH</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">SCI</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">COMP</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">S.ST</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ISL</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">DRAW</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">AL-Q</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ORAL</th>
-              <th class="py-2 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">TOTAL</th>
-              <th class="py-2 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">%AGE</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">GRADE</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">POS</th>
-              <th class="py-2 px-1.5 border-r border-slate-700 w-14">ATT</th>
-              <th class="py-2 px-3 text-left whitespace-nowrap">TEACHER REMARKS</th>
+              <th class="px-1 border-r border-slate-700 w-8">SR</th>
+              <th class="px-3 border-r border-slate-700 text-left w-48 whitespace-nowrap">STUDENT NAME</th>
+              <th class="px-1.5 border-r border-slate-700">ENG</th>
+              <th class="px-1.5 border-r border-slate-700">URDU</th>
+              <th class="px-1.5 border-r border-slate-700">MATH</th>
+              <th class="px-1.5 border-r border-slate-700">SCI</th>
+              <th class="px-1.5 border-r border-slate-700">COMP</th>
+              <th class="px-1.5 border-r border-slate-700">S.ST</th>
+              <th class="px-1.5 border-r border-slate-700">ISL</th>
+              <th class="px-1.5 border-r border-slate-700">DRAW</th>
+              <th class="px-1.5 border-r border-slate-700">AL-Q</th>
+              <th class="px-1.5 border-r border-slate-700">ORAL</th>
+              <th class="px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">TOTAL</th>
+              <th class="px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">%AGE</th>
+              <th class="px-1.5 border-r border-slate-700">GRADE</th>
+              <th class="px-1.5 border-r border-slate-700">POS</th>
+              <th class="px-1.5 border-r border-slate-700 w-14">ATT</th>
+              <th class="px-3 text-left whitespace-nowrap">TEACHER REMARKS</th>
             </tr>
             <tr class="bg-slate-200 text-slate-800 font-bold text-xs text-center border-b border-slate-400">
-              <td colspan="2" class="py-1 px-3 text-left font-bold uppercase whitespace-nowrap">MAXIMUM MARKS &rarr;</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">30</td>
-              <td class="py-1 px-1.5 font-mono">20</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-2 font-mono font-black bg-slate-300 text-slate-900">290</td>
-              <td class="py-1 px-2 font-mono">100%</td>
-              <td colspan="4" class="py-1 px-1.5 text-slate-500 font-semibold whitespace-nowrap">Pass Mark: 40%</td>
+              <td colspan="2" class="px-3 text-left font-bold uppercase whitespace-nowrap">MAXIMUM MARKS &rarr;</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">30</td>
+              <td class="px-1.5 font-mono">20</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-2 font-mono font-black bg-slate-300 text-slate-900">290</td>
+              <td class="px-2 font-mono">100%</td>
+              <td colspan="4" class="px-1.5 text-slate-500 font-semibold whitespace-nowrap">Pass Mark: 40%</td>
             </tr>
           </thead>
           <tbody id="table-body-page1">
-            <!-- Populated via JavaScript (Rows 1 to 26) -->
+            <!-- Populated via JavaScript (Rows 1 to 18) -->
           </tbody>
         </table>
       </div>
@@ -295,18 +315,18 @@
       <!-- Page 1 Footer Strip -->
       <div class="mt-1 pt-1 border-t border-slate-300 flex items-center justify-between text-[9px] text-slate-500 font-medium">
         <div>* Marks with red background failed (&lt;40%) and are EXCLUDED from the Total Marks.</div>
-        <div class="font-bold text-slate-700">Page 1 of 2 &bull; Continued on Page 2 (Roll #27 to #33) &rarr;</div>
+        <div class="font-bold text-slate-700">Page 1 of 2 &bull; Continued on Page 2 (Roll #19 to #33) &rarr;</div>
         <div>Al Rehman Public Secondary School Sadwal</div>
       </div>
 
     </div>
 
 
-    <!-- ==================== PAGE 2 (Roll #27 to #33 + Signatures) ==================== -->
+    <!-- ==================== PAGE 2 (Roll #19 to #33 + Signatures) ==================== -->
     <div class="marksheet-page bg-white rounded-lg shadow-sm border border-slate-200 flex flex-col justify-between" id="page-2">
       
       <!-- Page 2 Header with High-Contrast Class & Incharge Badges -->
-      <div class="border-b-2 border-slate-900 pb-2 mb-2">
+      <div class="border-b-2 border-slate-900 pb-1.5 mb-1">
         <div class="flex items-center justify-between">
           <!-- Left: School Crest & Title -->
           <div class="flex items-center space-x-3.5">
@@ -358,102 +378,85 @@
       </div>
 
       <!-- Page 2 Sub-Banner -->
-      <div class="bg-slate-100 border border-slate-300 rounded-lg px-4 py-1.5 my-2 flex items-center justify-between text-xs font-semibold text-slate-800">
-        <span class="font-black text-slate-900 uppercase text-xs">Award List Continuation &bull; Roll #27 to #33 (Final 7 Students)</span>
+      <div class="bg-slate-100 border border-slate-300 rounded-lg px-4 py-1 my-1 flex items-center justify-between text-xs font-semibold text-slate-800">
+        <span class="font-black text-slate-900 uppercase text-xs">Award List Continuation &bull; Roll #19 to #33 (Final 15 Students)</span>
         <span class="text-xs text-slate-600 font-medium">Evaluation Criteria: 40% Minimum Subject Pass Mark &bull; Failed Marks Strictly Excluded</span>
       </div>
 
-      <!-- Page 2 Consolidated Table (Students 27 to 33) -->
+      <!-- Page 2 Consolidated Table (Students 19 to 33) -->
       <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-sm">
           <thead>
             <tr class="bg-slate-900 text-white font-black uppercase text-xs tracking-wider text-center">
-              <th class="py-2 px-1 border-r border-slate-700 w-8">SR</th>
-              <th class="py-2 px-3 border-r border-slate-700 text-left w-48 whitespace-nowrap">STUDENT NAME</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ENG</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">URDU</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">MATH</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">SCI</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">COMP</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">S.ST</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ISL</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">DRAW</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">AL-Q</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">ORAL</th>
-              <th class="py-2 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">TOTAL</th>
-              <th class="py-2 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">%AGE</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">GRADE</th>
-              <th class="py-2 px-1.5 border-r border-slate-700">POS</th>
-              <th class="py-2 px-1.5 border-r border-slate-700 w-14">ATT</th>
-              <th class="py-2 px-3 text-left whitespace-nowrap">TEACHER REMARKS</th>
+              <th class="px-1 border-r border-slate-700 w-8">SR</th>
+              <th class="px-3 border-r border-slate-700 text-left w-48 whitespace-nowrap">STUDENT NAME</th>
+              <th class="px-1.5 border-r border-slate-700">ENG</th>
+              <th class="px-1.5 border-r border-slate-700">URDU</th>
+              <th class="px-1.5 border-r border-slate-700">MATH</th>
+              <th class="px-1.5 border-r border-slate-700">SCI</th>
+              <th class="px-1.5 border-r border-slate-700">COMP</th>
+              <th class="px-1.5 border-r border-slate-700">S.ST</th>
+              <th class="px-1.5 border-r border-slate-700">ISL</th>
+              <th class="px-1.5 border-r border-slate-700">DRAW</th>
+              <th class="px-1.5 border-r border-slate-700">AL-Q</th>
+              <th class="px-1.5 border-r border-slate-700">ORAL</th>
+              <th class="px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">TOTAL</th>
+              <th class="px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-black">%AGE</th>
+              <th class="px-1.5 border-r border-slate-700">GRADE</th>
+              <th class="px-1.5 border-r border-slate-700">POS</th>
+              <th class="px-1.5 border-r border-slate-700 w-14">ATT</th>
+              <th class="px-3 text-left whitespace-nowrap">TEACHER REMARKS</th>
             </tr>
             <tr class="bg-slate-200 text-slate-800 font-bold text-xs text-center border-b border-slate-400">
-              <td colspan="2" class="py-1 px-3 text-left font-bold uppercase whitespace-nowrap">MAXIMUM MARKS &rarr;</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">50</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">30</td>
-              <td class="py-1 px-1.5 font-mono">20</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-1.5 font-mono">10</td>
-              <td class="py-1 px-2 font-mono font-black bg-slate-300 text-slate-900">290</td>
-              <td class="py-1 px-2 font-mono">100%</td>
-              <td colspan="4" class="py-1 px-1.5 text-slate-500 font-semibold whitespace-nowrap">Pass Mark: 40%</td>
+              <td colspan="2" class="px-3 text-left font-bold uppercase whitespace-nowrap">MAXIMUM MARKS &rarr;</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">50</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">30</td>
+              <td class="px-1.5 font-mono">20</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-1.5 font-mono">10</td>
+              <td class="px-2 font-mono font-black bg-slate-300 text-slate-900">290</td>
+              <td class="px-2 font-mono">100%</td>
+              <td colspan="4" class="px-1.5 text-slate-500 font-semibold whitespace-nowrap">Pass Mark: 40%</td>
             </tr>
           </thead>
           <tbody id="table-body-page2">
-            <!-- Populated via JavaScript (Rows 27 to 33) -->
+            <!-- Populated via JavaScript (Rows 19 to 33) -->
           </tbody>
         </table>
       </div>
 
       <!-- Quick Examination Statistics Cards -->
-      <div class="grid grid-cols-4 gap-3 my-2 text-center text-xs">
-        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5">
-          <span class="block text-[9.5px] uppercase font-bold text-slate-500">Class Total Enrolled</span>
-          <span class="font-black text-slate-900 font-mono text-base">33 Students</span>
-          <span class="text-xs text-slate-600 block mt-0.5">32 Active &bull; 1 SLC</span>
+      <div class="grid grid-cols-4 gap-2.5 my-1.5 text-center text-xs">
+        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2">
+          <span class="block text-[9px] uppercase font-bold text-slate-500">Class Total Enrolled</span>
+          <span class="font-black text-slate-900 font-mono text-sm">33 Students</span>
+          <span class="text-[10px] text-slate-600 block mt-0.5">32 Active &bull; 1 SLC</span>
         </div>
-        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2.5">
-          <span class="block text-[9.5px] uppercase font-bold text-emerald-700">Passed in All Subjects</span>
-          <span class="font-black text-emerald-900 font-mono text-base" id="p2-passed-count">25 Students (78.1%)</span>
-          <span class="text-xs text-emerald-700 block mt-0.5 font-semibold">Eligible for Promotion</span>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
+          <span class="block text-[9px] uppercase font-bold text-emerald-700">Passed in All Subjects</span>
+          <span class="font-black text-emerald-900 font-mono text-sm" id="p2-passed-count">25 Students (78.1%)</span>
+          <span class="text-[10px] text-emerald-700 block mt-0.5 font-semibold">Eligible for Promotion</span>
         </div>
-        <div class="bg-rose-50 border border-rose-200 rounded-lg p-2.5">
-          <span class="block text-[9.5px] uppercase font-bold text-rose-700">Students with Failures</span>
-          <span class="font-black text-rose-900 font-mono text-base" id="p2-failed-count">7 Students</span>
-          <span class="text-xs text-rose-600 block mt-0.5 font-semibold">Compartment Re-Test</span>
+        <div class="bg-rose-50 border border-rose-200 rounded-lg p-2">
+          <span class="block text-[9px] uppercase font-bold text-rose-700">Students with Failures</span>
+          <span class="font-black text-rose-900 font-mono text-sm" id="p2-failed-count">7 Students</span>
+          <span class="text-[10px] text-rose-600 block mt-0.5 font-semibold">Compartment Re-Test</span>
         </div>
-        <div class="bg-amber-50 border border-amber-200 rounded-lg p-2.5">
-          <span class="block text-[9.5px] uppercase font-bold text-amber-700">Overall Class Average</span>
-          <span class="font-black text-amber-900 font-mono text-base" id="p2-class-avg">85.66%</span>
-          <span class="text-xs text-amber-800 block mt-0.5 font-semibold">Top Score: 288 (99.3%)</span>
-        </div>
-      </div>
-
-      <!-- Academic Performance Highlights & Remedial Policy Cards -->
-      <div class="grid grid-cols-2 gap-3 my-2 text-xs">
-        <div class="bg-emerald-50/70 border border-emerald-200 rounded-lg p-2.5">
-          <span class="font-black text-emerald-950 uppercase text-[10px] block mb-1">Academic Performance Highlights</span>
-          <ul class="space-y-0.5 text-emerald-900 text-xs font-medium">
-            <li>&bull; Class Average: <strong>85.66%</strong> &bull; Highest Score: <strong>288/290 (99.31%)</strong> by Muhammad Ahsan Shahmeer</li>
-            <li>&bull; 25 of 32 Active Students passed all 10 subjects with 100% promotion eligibility</li>
-          </ul>
-        </div>
-        <div class="bg-rose-50/70 border border-rose-200 rounded-lg p-2.5">
-          <span class="font-black text-rose-950 uppercase text-[10px] block mb-1">Remedial & Examination Directive</span>
-          <p class="text-rose-900 text-xs leading-relaxed font-medium">
-            Students scoring below 40% in any subject are required to appear in the <strong>2nd Term Compartment Remedial Exam</strong>. As per school policy, failed marks are excluded from aggregate marks.
-          </p>
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-2">
+          <span class="block text-[9px] uppercase font-bold text-amber-700">Overall Class Average</span>
+          <span class="font-black text-amber-900 font-mono text-sm" id="p2-class-avg">85.66%</span>
+          <span class="text-[10px] text-amber-800 block mt-0.5 font-semibold">Top Score: 288 (99.3%)</span>
         </div>
       </div>
 
       <!-- Grading Scale Legend & Rule Footnote -->
-      <div class="mt-2 pt-1 border-t border-slate-300">
-        <div class="flex items-center justify-between text-[10px] bg-slate-50 p-2 rounded-lg border border-slate-200 text-slate-700">
+      <div class="mt-1 pt-1 border-t border-slate-300">
+        <div class="flex items-center justify-between text-[10px] bg-slate-50 p-1.5 rounded-lg border border-slate-200 text-slate-700">
           <div class="space-x-1.5 font-medium">
             <span class="font-black text-slate-900 uppercase">Grading Scale:</span>
             <span>&le;100%: <strong class="text-emerald-700 font-bold">A+</strong> (Excellent)</span> &bull;
@@ -471,19 +474,19 @@
       </div>
 
       <!-- Signatures Row: Incharge, Controller & Principal -->
-      <div class="mt-4 pt-2 border-t border-slate-300">
+      <div class="mt-2.5 pt-1.5 border-t border-slate-300">
         <div class="grid grid-cols-3 gap-12 text-center text-slate-700">
-          <div class="border-t-2 border-slate-400 pt-1.5">
+          <div class="border-t-2 border-slate-400 pt-1">
             <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Sig. Class Incharge</span>
           </div>
-          <div class="border-t-2 border-slate-400 pt-1.5">
+          <div class="border-t-2 border-slate-400 pt-1">
             <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Controller of Examinations</span>
           </div>
-          <div class="border-t-2 border-slate-400 pt-1.5">
+          <div class="border-t-2 border-slate-400 pt-1">
             <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Principal</span>
           </div>
         </div>
-        <div class="mt-2 text-center text-[9px] text-slate-400 font-medium">
+        <div class="mt-1 text-center text-[9px] text-slate-400 font-medium">
           Page 2 of 2 &bull; End of Official Consolidated Mark Sheet &bull; Al Rehman Public Secondary School Sadwal
         </div>
       </div>
@@ -498,24 +501,23 @@
   <script src="data.js"></script>
 
   <script>
-    function renderRow(st, classData, isCompact = false) {
-      const padY = isCompact ? 'py-1' : 'py-2';
+    function renderRow(st, classData) {
       const fontSize = 'text-sm';
-      const fontNameSize = 'text-sm';
+      const cellHeight = 'h-[30px]';
       
       if (st.isSLC) {
         const tr = document.createElement('tr');
-        tr.className = `bg-slate-100/70 border-b border-slate-400 ${fontSize} text-slate-500 italic`;
+        tr.className = `bg-slate-100/70 border-b border-slate-400 ${fontSize} ${cellHeight} text-slate-500 italic`;
         tr.innerHTML = `
-          <td class="${padY} px-1 text-center font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
-          <td class="${padY} px-3 text-slate-700 font-bold border border-slate-400 whitespace-nowrap ${fontNameSize}">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded border border-slate-300 ml-1">SLC</span></td>
-          <td colspan="${classData.subjects.length}" class="${padY} px-2 text-center tracking-widest text-slate-500 font-semibold text-xs border border-slate-400">&mdash; Left School (School Leaving Certificate) &mdash;</td>
-          <td class="${padY} px-2 text-center font-mono text-slate-400 border border-slate-400 ${fontSize}">&mdash;</td>
-          <td class="${padY} px-2 text-center font-mono text-slate-400 border border-slate-400 ${fontSize}">&mdash;</td>
-          <td class="${padY} px-1.5 text-center border border-slate-400"><span class="font-bold px-1.5 py-0.5 rounded text-[11px] bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
-          <td class="${padY} px-1.5 text-center border border-slate-400 font-mono text-slate-400">&mdash;</td>
-          <td class="${padY} px-1.5 text-center border border-slate-400 font-mono text-slate-400">&mdash;</td>
-          <td class="${padY} px-3 text-slate-500 border border-slate-400 ${fontSize}">Struck off / Left</td>
+          <td class="px-1 text-center font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
+          <td class="px-3 text-slate-700 font-bold border border-slate-400 whitespace-nowrap text-sm"><span class="truncate block leading-none">${st.name} <span class="not-italic text-[9px] font-bold bg-slate-200 text-slate-700 px-1 py-0.2 rounded border border-slate-300 ml-1">SLC</span></span></td>
+          <td colspan="${classData.subjects.length}" class="px-2 text-center tracking-widest text-slate-500 font-semibold text-xs border border-slate-400">&mdash; Left School (School Leaving Certificate) &mdash;</td>
+          <td class="px-2 text-center font-mono text-slate-400 border border-slate-400 text-sm">&mdash;</td>
+          <td class="px-2 text-center font-mono text-slate-400 border border-slate-400 text-sm">&mdash;</td>
+          <td class="px-1.5 text-center border border-slate-400"><span class="inline-flex items-center justify-center font-bold px-1.5 py-0.5 rounded text-[11px] leading-none bg-slate-200 text-slate-600 border border-slate-300">SLC</span></td>
+          <td class="px-1.5 text-center border border-slate-400 font-mono text-slate-400 text-sm">&mdash;</td>
+          <td class="px-1.5 text-center border border-slate-400 font-mono text-slate-400 text-sm">&mdash;</td>
+          <td class="px-3 text-slate-500 border border-slate-400 text-sm whitespace-nowrap">Struck off / Left</td>
         `;
         return tr;
       }
@@ -524,35 +526,35 @@
         ? 'bg-amber-50/50 hover:bg-amber-100/60' 
         : (isTop3 ? 'bg-emerald-50/40 font-medium' : (st.sr % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'));
 
-      const positionBadge = st.position === 1 ? `<span class="bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded text-[11px] border border-amber-300">1st</span>`
-        : st.position === 2 ? `<span class="bg-slate-200 text-slate-800 font-bold px-1.5 py-0.5 rounded text-[11px] border border-slate-400">2nd</span>`
-        : st.position === 3 ? `<span class="bg-amber-50 text-amber-800 font-bold px-1.5 py-0.5 rounded text-[11px] border border-amber-200">3rd</span>`
-        : `<span class="text-slate-600 font-mono ${fontSize}">${getOrdinal(st.position)}</span>`;
+      const positionBadge = st.position === 1 ? `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded text-[11px] leading-none border border-amber-300">1st</span>`
+        : st.position === 2 ? `<span class="inline-flex items-center justify-center bg-slate-200 text-slate-800 font-bold px-1.5 py-0.5 rounded text-[11px] leading-none border border-slate-400">2nd</span>`
+        : st.position === 3 ? `<span class="inline-flex items-center justify-center bg-amber-50 text-amber-800 font-bold px-1.5 py-0.5 rounded text-[11px] leading-none border border-amber-200">3rd</span>`
+        : `<span class="text-slate-600 font-mono text-sm leading-none">${getOrdinal(st.position)}</span>`;
 
       const cells = st.subjectResults.map(sub => {
         if (!sub.isPass) {
           const markDisplay = sub.mark === '-' ? '-' : `${sub.mark}*`;
-          return `<td class="${padY} px-1.5 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 ${fontSize}" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${markDisplay}</td>`;
+          return `<td class="px-1.5 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border border-slate-400 text-sm leading-none" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${markDisplay}</td>`;
         }
-        return `<td class="${padY} px-1.5 text-center font-mono font-bold text-slate-800 border border-slate-400 ${fontSize}">${sub.mark}</td>`;
+        return `<td class="px-1.5 text-center font-mono font-bold text-slate-800 border border-slate-400 text-sm leading-none">${sub.mark}</td>`;
       }).join('');
 
       const tr = document.createElement('tr');
-      tr.className = `${rowBg} border-b border-slate-400 ${fontSize} transition hover:bg-slate-100/60`;
+      tr.className = `${rowBg} border-b border-slate-400 ${fontSize} ${cellHeight} transition hover:bg-slate-100/60`;
       tr.innerHTML = `
-        <td class="${padY} px-1 text-center text-slate-600 font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
-        <td class="${padY} px-3 text-slate-900 font-bold border border-slate-400 whitespace-nowrap ${fontNameSize}">${st.name}</td>
+        <td class="px-1 text-center text-slate-600 font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
+        <td class="px-3 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-sm"><span class="truncate block leading-none">${st.name}</span></td>
         ${cells}
-        <td class="${padY} px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 ${fontSize}">
+        <td class="px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-sm leading-none">
           ${st.validTotal}
         </td>
-        <td class="${padY} px-2 text-center font-mono font-black text-slate-800 border border-slate-400 ${fontSize}">${st.percentage}%</td>
-        <td class="${padY} px-1.5 text-center border border-slate-400">
-          <span class="font-bold px-1.5 py-0.5 rounded text-[11px] ${st.badgeClass}">${st.grade}</span>
+        <td class="px-2 text-center font-mono font-black text-slate-800 border border-slate-400 text-sm leading-none">${st.percentage}%</td>
+        <td class="px-1.5 text-center border border-slate-400">
+          <span class="inline-flex items-center justify-center font-bold px-1.5 py-0.5 rounded text-[11px] leading-none ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="${padY} px-1.5 text-center border border-slate-400 font-bold">${positionBadge}</td>
-        <td class="${padY} px-1.5 text-center font-mono font-bold text-slate-800 border border-slate-400 ${fontSize}">${st.attendance || '&mdash;'}</td>
-        <td class="${padY} px-3 text-slate-700 font-medium whitespace-nowrap border border-slate-400 ${fontSize}">${st.remarks}</td>
+        <td class="px-1.5 text-center border border-slate-400 font-bold">${positionBadge}</td>
+        <td class="px-1.5 text-center font-mono font-bold text-slate-800 border border-slate-400 text-sm leading-none">${st.attendance || '&mdash;'}</td>
+        <td class="px-3 text-slate-700 font-medium whitespace-nowrap border border-slate-400 text-sm"><span class="truncate block leading-none">${st.remarks}</span></td>
       `;
       return tr;
     }
@@ -565,9 +567,9 @@
       }
       const classData = processClass(rawData);
       
-      // Page 1: Rows 1 to 26 (matching Page 1 of official mark sheet)
-      // Page 2: Rows 27 to 33 (matching Page 2 of official mark sheet)
-      const PAGE_1_LIMIT = 26;
+      // Page 1: Rows 1 to 18 (18 students)
+      // Page 2: Rows 19 to 33 (15 students)
+      const PAGE_1_LIMIT = 18;
       const page1Students = classData.students.slice(0, PAGE_1_LIMIT);
       const page2Students = classData.students.slice(PAGE_1_LIMIT);
 
@@ -597,17 +599,17 @@
       const p2Avg = document.getElementById('p2-class-avg');
       if (p2Avg) p2Avg.textContent = `${classData.meta.classAveragePct}%`;
 
-      // Render Page 1 rows (compact py-1 for 26 rows to fit within Page 1)
+      // Render Page 1 rows (18 students)
       if (tbody1) {
         page1Students.forEach(st => {
-          tbody1.appendChild(renderRow(st, classData, true));
+          tbody1.appendChild(renderRow(st, classData));
         });
       }
 
-      // Render Page 2 rows (standard py-2 for 7 rows matching master template)
+      // Render Page 2 rows (15 students)
       if (tbody2) {
         page2Students.forEach(st => {
-          tbody2.appendChild(renderRow(st, classData, false));
+          tbody2.appendChild(renderRow(st, classData));
         });
       }
     }

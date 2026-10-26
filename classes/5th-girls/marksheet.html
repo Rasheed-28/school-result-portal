@@ -30,21 +30,20 @@
       size: A4 landscape;
       margin: 0;
     }
-    /* Cell Partitioning for Tables (Screen & Print) */
+        /* Strictly Equal Cell Height across all rows and tables */
     table {
       border-collapse: collapse !important;
+      width: 100% !important;
     }
     table th, table td {
-      border: 1px solid #64748b;
-    }
-
-    @media print {
-      html, body {
-        width: 297mm !important;
-        height: 210mm !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #ffffff !important;
+        border: 1px solid #1e293b !important;
+        height: 30px !important;
+        max-height: 30px !important;
+        min-height: 30px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        vertical-align: middle !important;
+        box-sizing: border-box !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -83,6 +82,13 @@
       }
       table th, table td {
         border: 1px solid #1e293b !important;
+        height: 30px !important;
+        max-height: 30px !important;
+        min-height: 30px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        vertical-align: middle !important;
+        box-sizing: border-box !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -364,21 +370,21 @@
       }).join('');
 
             const tr = document.createElement('tr');
-      tr.className = `${rowBg} border-b border-slate-400 text-sm transition hover:bg-slate-100/60`;
+      tr.className = `${rowBg} border-b border-slate-400 text-sm h-[30px] transition hover:bg-slate-100/60`;
       tr.innerHTML = `
         <td class="py-1.5 px-1 text-center text-slate-600 font-mono text-xs border border-slate-400 font-bold">${st.sr}</td>
-        <td class="py-1.5 px-3 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-sm">${st.name}</td>
+        <td class="px-3 text-slate-900 font-bold border border-slate-400 whitespace-nowrap text-sm"><span class="truncate block leading-none">${st.name}</span></td>
         ${cells}
         <td class="py-1.5 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border border-slate-400 text-sm">
           ${st.validTotal}
         </td>
         <td class="py-1.5 px-2 text-center font-mono font-black text-slate-800 border border-slate-400 text-sm">${st.percentage}%</td>
         <td class="py-1.5 px-1.5 text-center border border-slate-400">
-          <span class="font-bold px-1.5 py-0.5 rounded text-[11px] ${st.badgeClass}">${st.grade}</span>
+          <span class="inline-flex items-center justify-center font-bold px-1.5 py-0.5 rounded text-[11px] leading-none ${st.badgeClass}">${st.grade}</span>
         </td>
         <td class="py-1.5 px-1.5 text-center border border-slate-400 font-bold">${positionBadge}</td>
         <td class="py-1.5 px-1.5 text-center font-mono font-bold text-slate-800 border border-slate-400 text-sm">${st.attendance || '&mdash;'}</td>
-        <td class="py-1.5 px-3 text-slate-700 font-medium whitespace-nowrap text-sm border border-slate-400">${st.remarks}</td>
+        <td class="px-3 text-slate-700 font-medium whitespace-nowrap text-sm border border-slate-400"><span class="truncate block leading-none">${st.remarks}</span></td>
       `;
       tbody.appendChild(tr);
     });
