@@ -418,14 +418,20 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderAllCards();
-    window.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-        e.preventDefault();
-        window.print();
-      }
-    });
+  // Multi-tier reliable rendering execution
+  renderAllCards();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAllCards);
+  }
+  window.addEventListener('load', renderAllCards);
+  window.addEventListener('beforeprint', renderAllCards);
+
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      window.print();
+    }
   });
   </script>
 </body>

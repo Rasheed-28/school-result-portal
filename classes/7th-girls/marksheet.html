@@ -39,7 +39,6 @@
         background: #ffffff !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        overflow: hidden !important;
       }
       .no-print {
         display: none !important;
@@ -53,19 +52,18 @@
       }
       .marksheet-page {
         width: 297mm !important;
-        height: 210mm !important;
+        min-height: 200mm !important;
         max-height: 210mm !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
         break-after: avoid !important;
         break-inside: avoid !important;
         margin: 0 auto !important;
-        padding: 8mm 10mm !important;
+        padding: 6mm 10mm !important;
         box-sizing: border-box !important;
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        overflow: hidden !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
@@ -82,9 +80,8 @@
       }
       .marksheet-page {
         width: 297mm;
-        height: 210mm;
-        max-height: 210mm;
-        padding: 8mm 10mm;
+        min-height: 210mm;
+        padding: 6mm 10mm;
         box-sizing: border-box;
         margin: 0 auto 24px auto;
         background: #ffffff;
@@ -213,7 +210,7 @@
       </div>
 
       <!-- Consolidated Table with LARGER FONT (text-xs / 12px) -->
-      <div class="flex-1 overflow-hidden">
+      <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-xs">
           <thead>
             <tr class="bg-slate-900 text-white font-black uppercase text-xs tracking-wider text-center">
@@ -230,7 +227,7 @@
               <th class="py-1.5 px-1 border-r border-slate-700">Model</th>
               <th class="py-1.5 px-1 border-r border-slate-700">Al-Q(O)</th>
               <th class="py-1.5 px-1 border-r border-slate-700">Oral</th>
-              <th class="py-1.5 px-1 border-r border-slate-700">His</th>
+              <th class="py-1.5 px-1 border-r border-slate-700">Geo</th>
               <th class="py-1.5 px-2 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold">Total</th>
               <th class="py-1.5 px-1.5 border-r border-slate-700 bg-slate-900 text-amber-300 font-extrabold">%age</th>
               <th class="py-1.5 px-1 border-r border-slate-700">Grade</th>
@@ -334,43 +331,49 @@
         : st.position === 3 ? `<span class="bg-amber-50 text-amber-800 font-bold px-1.5 py-0.2 rounded text-[9px] border border-amber-200">3rd</span>`
         : `<span class="text-slate-600 font-mono text-xs">${getOrdinal(st.position)}</span>`;
 
-      // Subject cells with LARGER font (text-xs)
+      // Subject cells with calibrated row padding
       const cells = st.subjectResults.map(sub => {
         if (!sub.isPass) {
-          return `<td class="py-2.5 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
+          return `<td class="py-1.5 px-1 text-center font-mono font-bold bg-rose-100/90 text-rose-700 border-x border-rose-300 text-sm" title="Failed: ${sub.mark}/${sub.maxMarks} (<40%)">${sub.mark}*</td>`;
         }
-        return `<td class="py-2.5 px-1 text-center font-mono font-bold text-slate-800 border-x border-slate-200 text-sm">${sub.mark}</td>`;
+        return `<td class="py-1.5 px-1 text-center font-mono font-bold text-slate-800 border-x border-slate-200 text-sm">${sub.mark}</td>`;
       }).join('');
 
       const tr = document.createElement('tr');
       tr.className = `${rowBg} border-b border-slate-200 text-sm transition hover:bg-slate-100/60`;
       tr.innerHTML = `
-        <td class="py-2.5 px-1 text-center text-slate-500 font-mono text-xs border-r border-slate-200 font-bold">${st.sr}</td>
-        <td class="py-2.5 px-2.5 text-slate-900 font-bold border-r border-slate-200 whitespace-nowrap text-sm">${st.name}</td>
+        <td class="py-1.5 px-1 text-center text-slate-500 font-mono text-xs border-r border-slate-200 font-bold">${st.sr}</td>
+        <td class="py-1.5 px-2.5 text-slate-900 font-bold border-r border-slate-200 whitespace-nowrap text-sm">${st.name}</td>
         ${cells}
-        <td class="py-2.5 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border-x border-slate-300 text-sm">
+        <td class="py-1.5 px-2 text-center font-mono font-black text-slate-900 bg-slate-100 border-x border-slate-300 text-sm">
           ${st.validTotal}
         </td>
-        <td class="py-2.5 px-1.5 text-center font-mono font-black text-slate-800 border-r border-slate-200 text-sm">${st.percentage}%</td>
-        <td class="py-2.5 px-1 text-center border-r border-slate-200">
+        <td class="py-1.5 px-1.5 text-center font-mono font-black text-slate-800 border-r border-slate-200 text-sm">${st.percentage}%</td>
+        <td class="py-1.5 px-1 text-center border-r border-slate-200">
           <span class="font-black px-2 py-0.5 rounded text-xs ${st.badgeClass}">${st.grade}</span>
         </td>
-        <td class="py-2.5 px-1.5 text-center border-r border-slate-200 font-black text-xs">${positionBadge}</td>
-        <td class="py-2 px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
-        <td class="py-2.5 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs">${st.remarks}</td>
+        <td class="py-1.5 px-1.5 text-center border-r border-slate-200 font-black text-xs">${positionBadge}</td>
+        <td class="py-1.5 px-1 text-center font-mono font-bold text-slate-800 border-r border-slate-200 text-xs">${st.attendance || '&mdash;'}</td>
+        <td class="py-1.5 px-2 text-slate-700 font-semibold whitespace-nowrap text-xs">${st.remarks}</td>
       `;
       tbody.appendChild(tr);
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderTable();
-    window.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-        e.preventDefault();
-        window.print();
-      }
-    });
+  // Multi-tier reliable rendering execution
+  renderTable();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderTable);
+  }
+  window.addEventListener('load', renderTable);
+  window.addEventListener('beforeprint', renderTable);
+
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      window.print();
+    }
   });
   </script>
 </body>

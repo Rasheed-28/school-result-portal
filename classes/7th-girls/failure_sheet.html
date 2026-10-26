@@ -39,7 +39,6 @@
         background: #ffffff !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        overflow: hidden !important;
       }
       .no-print {
         display: none !important;
@@ -53,19 +52,18 @@
       }
       .failure-page {
         width: 297mm !important;
-        height: 210mm !important;
+        min-height: 200mm !important;
         max-height: 210mm !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
         break-after: avoid !important;
         break-inside: avoid !important;
         margin: 0 auto !important;
-        padding: 8mm 10mm !important;
+        padding: 6mm 10mm !important;
         box-sizing: border-box !important;
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        overflow: hidden !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
@@ -210,7 +208,7 @@
       </div>
 
       <!-- Failure Students Table -->
-      <div class="flex-1 overflow-hidden">
+      <div class="w-full my-auto overflow-visible">
         <table class="w-full text-left border-collapse border border-slate-300 text-xs">
           <thead>
             <tr class="bg-slate-900 text-white font-black uppercase text-xs tracking-wider text-center">
@@ -330,14 +328,20 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderFailureSheet();
-    window.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-        e.preventDefault();
-        window.print();
-      }
-    });
+  // Multi-tier reliable rendering execution
+  renderFailureSheet();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderFailureSheet);
+  }
+  window.addEventListener('load', renderFailureSheet);
+  window.addEventListener('beforeprint', renderFailureSheet);
+
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      window.print();
+    }
   });
   </script>
 </body>

@@ -34,7 +34,7 @@ const CLASS_DATA = {
     "Model Making": 5,
     "Al-Quran (Oral)": 10,
     "Oral Assessment": 10,
-    "History & Geo": 50
+    "Geography": 50
   },
   // Student Name as Object Key with Subject Marks as Key-Value Pairs
   students: {
@@ -52,7 +52,7 @@ const CLASS_DATA = {
         "Model Making": 2,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Anabia Tehneat": {
@@ -69,7 +69,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Urwa Eiman": {
@@ -86,7 +86,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 8,
-        "History & Geo": 46
+        "Geography": 46
       }
     },
     "Rameen Kanwal": {
@@ -103,7 +103,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Zarlish Nadia": {
@@ -120,7 +120,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 8,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Fatima Noor-ul-Ain": {
@@ -137,7 +137,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Areeba Humayun": {
@@ -154,7 +154,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 48
+        "Geography": 48
       }
     },
     "Rameen Fatima": {
@@ -171,7 +171,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Rabia Eiman": {
@@ -188,7 +188,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Malaika Insar": {
@@ -205,7 +205,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 9,
         "Oral Assessment": 8,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Eshal Fatima": {
@@ -222,7 +222,7 @@ const CLASS_DATA = {
         "Model Making": 5,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 50
+        "Geography": 50
       }
     },
     "Abrish Noor": {
@@ -239,7 +239,7 @@ const CLASS_DATA = {
         "Model Making": 4,
         "Al-Quran (Oral)": 10,
         "Oral Assessment": 10,
-        "History & Geo": 49
+        "Geography": 49
       }
     }
   }
