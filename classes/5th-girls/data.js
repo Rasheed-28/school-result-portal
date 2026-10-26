@@ -216,14 +216,8 @@ const CLASS_DATA = {
         "Oral Assessment": 10
       }
     },
-    "Taqveem Fatima": {
-      rollNo: 13,
-      status: "SLC",
-      isSLC: true,
-      marks: {}
-    },
     "Fatima Zahra": {
-      rollNo: 14,
+      rollNo: 13,
       marks: {
         "English": 43,
         "Urdu": 41,
@@ -238,7 +232,7 @@ const CLASS_DATA = {
       }
     },
     "Eshaal Fatima": {
-      rollNo: 15,
+      rollNo: 14,
       marks: {
         "English": 41,
         "Urdu": 30,
@@ -253,7 +247,7 @@ const CLASS_DATA = {
       }
     },
     "Areesha Fatima": {
-      rollNo: 16,
+      rollNo: 15,
       marks: {
         "English": 49,
         "Urdu": 46,
